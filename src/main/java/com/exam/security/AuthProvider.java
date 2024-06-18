@@ -26,24 +26,24 @@ public class AuthProvider implements AuthenticationProvider {
 	@Override
 	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
 
-		String userid = (String)authentication.getPrincipal(); // name="userid" 값
-		String passwd = (String)authentication.getCredentials(); // name="passwd" 값
+		String member_id = (String)authentication.getPrincipal(); // name="userid" 값
+		String member_pw = (String)authentication.getCredentials(); // name="passwd" 값
 		
 		
-		Member mem = memberService.findById(userid);
+		Member mem = memberService.findById(member_id);
 //		String encrptPw = mem.getPasswd();  // NullPointerExcepion 발생되기 때문에 사용안됨.
 		
 		//Authentication 하위클래스
 		//로그인 성공시
 		UsernamePasswordAuthenticationToken token=null;
-		if(mem!=null && new BCryptPasswordEncoder().matches(passwd, mem.getPasswd())) {
+		if(mem!=null && new BCryptPasswordEncoder().matches(member_pw, mem.getMember_pw())) {
 			
 			List<GrantedAuthority> list = new ArrayList<>();
 			//ROLE 설정시 사용됨
 			list.add(new SimpleGrantedAuthority("USER")); // ADMIN
 			
 			//암호화된 비번대신에 raw 비번으로 설정
-			mem.setPasswd(passwd);
+			mem.setMember_pw(member_pw);
 			token = new UsernamePasswordAuthenticationToken(mem, null, list);
 //			token = new UsernamePasswordAuthenticationToken(mem, null);
 //			new UsernamePasswordAuthenticationToken(Principal, Credentials);

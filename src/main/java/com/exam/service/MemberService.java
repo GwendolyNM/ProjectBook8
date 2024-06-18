@@ -4,6 +4,6 @@ import com.exam.dto.Member;
 
 public interface MemberService {
 
-	public int save(Member mem);
-	public Member findById(String userid);
+	public int save(Member member_id);
+	public Member findById(String member_id);
 }
