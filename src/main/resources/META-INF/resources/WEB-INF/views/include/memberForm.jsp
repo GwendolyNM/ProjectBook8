@@ -8,14 +8,14 @@
   
   	  $(document).ready(function(){
   		  
-  		  $("#userid").on("keyup",function(){
+  		  $("#member_id").on("keyup",function(){
   			 
   			  	$.ajax({
   			  	   url:'userid-check',
   			  	   method:'get',
   			  	   dataType:"text",
   			  	   data:{
-  			  		   "userid":$(this).val()
+  			  		   "member_id":$(this).val()
   			  	   },
   			  	   success:function(res, status ,xhr){
   			  		   $("#result").text(res);
@@ -37,19 +37,19 @@
               <form:form  method="post" modelAttribute="member" 
               action="signup">
                 <div>
-                    <label for="userid">userid:</label>
-                    <form:input type="text" path="userid" />
-                    <form:errors path="userid" cssClass="text-warning"/>
+                    <label for="member_id">member_id</label>
+                    <form:input type="text" path="member_id" />
+                    <form:errors path="member_id" cssClass="text-warning"/>
                 </div>
                 <div>
-                    <label for="password">passwd:</label>
-                    <form:input type="passwd" path="passwd" value="1234" />
-  					 <form:errors path="passwd" cssClass="text-warning"/>
+                    <label for="member_pw">member_pw</label>
+                    <form:input type="passwd" path="member_pw" value="1234" />
+  					 <form:errors path="member_pw" cssClass="text-warning"/>
                 </div>
                  <div>
-                    <label for="username">username:</label>
-                    <form:input type="text" path="username" />
-                    <form:errors path="username" cssClass="text-warning"/>
+                    <label for="member_name">member_name:</label>
+                    <form:input type="text" path="member_name" />
+                    <form:errors path="member_name" cssClass="text-warning"/>
                 </div>
                 <div>
                     <button name="login" class="btn btn-success m-5" >signup</button>

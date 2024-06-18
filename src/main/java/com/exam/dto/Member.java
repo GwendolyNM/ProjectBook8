@@ -1,5 +1,7 @@
 package com.exam.dto;
 
+import java.util.Date;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
@@ -7,53 +9,104 @@ import org.apache.ibatis.type.Alias;
 
 @Alias("Member")
 public class Member {
-
-	@NotBlank(message = "적어도 한글이상")
-	String userid;
-	
-	String passwd;
-	
-	@NotBlank(message = "적어도 한글이상")
-	String username;
+	int member_idx;
+	String member_id;
+	String member_pw;
+	String member_name;
+	String member_phone;
+	Date member_date;
+	String member_address;
+	boolean member_manager;
 	
 	public Member() {}
 
-    
-	public Member(String userid, String passwd, String username) {
-		this.userid = userid;
-		this.passwd = passwd;
-		this.username = username;
-	}
-
-
-	public String getUserid() {
-		return userid;
-	}
-
-	public void setUserid(String userid) {
-		this.userid = userid;
-	}
-
-	public String getPasswd() {
-		return passwd;
-	}
-
-	public void setPasswd(String passwd) {
-		this.passwd = passwd;
-	}
-
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-
 	@Override
 	public String toString() {
-		return "Member [userid=" + userid + ", passwd=" + passwd + ", username=" + username + "]";
+		return "Member [member_idx=" + member_idx + ", member_id=" + member_id + ", member_pw=" + member_pw
+				+ ", member_name=" + member_name + ", member_phone=" + member_phone + ", member_date=" + member_date
+				+ ", member_address=" + member_address + ", member_manager=" + member_manager + "]";
 	}
+
+	public Member(int member_idx, String member_id, String member_pw, String member_name, String member_phone,
+			Date member_date, String member_address, boolean member_manager) {
+		super();
+		this.member_idx = member_idx;
+		this.member_id = member_id;
+		this.member_pw = member_pw;
+		this.member_name = member_name;
+		this.member_phone = member_phone;
+		this.member_date = member_date;
+		this.member_address = member_address;
+		this.member_manager = member_manager;
+	}
+
+	public int getMember_idx() {
+		return member_idx;
+	}
+
+	public void setMember_idx(int member_idx) {
+		this.member_idx = member_idx;
+	}
+
+	public String getMember_id() {
+		return member_id;
+	}
+
+	public void setMember_id(String member_id) {
+		this.member_id = member_id;
+	}
+
+	public String getMember_pw() {
+		return member_pw;
+	}
+
+	public void setMember_pw(String member_pw) {
+		this.member_pw = member_pw;
+	}
+
+	public String getMember_name() {
+		return member_name;
+	}
+
+	public void setMember_name(String member_name) {
+		this.member_name = member_name;
+	}
+
+	public String getMember_phone() {
+		return member_phone;
+	}
+
+	public void setMember_phone(String member_phone) {
+		this.member_phone = member_phone;
+	}
+
+	public Date getMember_date() {
+		return member_date;
+	}
+
+	public void setMember_date(Date member_date) {
+		this.member_date = member_date;
+	}
+
+	public String getMember_address() {
+		return member_address;
+	}
+
+	public void setMember_address(String member_address) {
+		this.member_address = member_address;
+	}
+
+	public boolean isMember_manager() {
+		return member_manager;
+	}
+
+	public void setMember_manager(boolean member_manager) {
+		this.member_manager = member_manager;
+	}
+
+	
+		
+	
+	
 
 }

@@ -15,16 +15,16 @@ public class MemberServiceImpl
 		this.memberMapper = memberMapper;
 	}
 
+	@Override
+	public int save(Member member_id) {
+		return memberMapper.save(member_id);
+	}
 
 	@Override
-	public int save(Member mem) {
-		return memberMapper.save(mem);
+	public Member findById(String member_id) {
+		return memberMapper.findById(member_id);
 	}
 
 
-	@Override
-	public Member findById(String userid) {
-		return memberMapper.findById(userid);
-	}
 
 }
