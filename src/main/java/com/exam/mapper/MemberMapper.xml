@@ -8,7 +8,7 @@
  
      <insert id="save" parameterType="Member">
         insert into member (member_idx, member_id, member_pw, member_name, member_phone, member_date,member_address, member_manager)
-        values (#{member_idx}, #{member_id}, #{member_name}, #{member_phone}, #{member_date}, #{member_address}, ${member_manager} )
+        values (#{member_idx}, #{member_id}, #{member_pw}, #{member_name}, #{member_phone}, #{member_date}, #{member_address}, #{member_manager} )
      </insert>
    
      <select id="findById" parameterType="string" resultType="Member">
