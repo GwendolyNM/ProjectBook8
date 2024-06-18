@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.exam.mapper.BooksMapper">
+ 
+   <!-- 상품목록 -->
+   <select id="booksList" parameterType="string" resultType="BooksDTO">
+     select book_idx,
+            book_author,
+            book_pub,
+            book_name,
+            book_year,
+            book_ISBN,
+            book_image,
+            book_genre_idx
+     from book
+   </select>
+   
+</mapper>
+
+
