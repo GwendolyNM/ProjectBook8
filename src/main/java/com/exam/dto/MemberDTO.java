@@ -1,9 +1,6 @@
 package com.exam.dto;
 
-import java.util.Date;
-
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
+import java.time.LocalDate;
 
 import org.apache.ibatis.type.Alias;
 
@@ -14,7 +11,7 @@ public class MemberDTO {
 	String member_pw;
 	String member_name;
 	String member_phone;
-	Date member_date;
+	LocalDate member_date;
 	String member_address;
 	boolean member_manager;
 	
@@ -28,7 +25,7 @@ public class MemberDTO {
 	}
 
 	public MemberDTO(int member_idx, String member_id, String member_pw, String member_name, String member_phone,
-			Date member_date, String member_address, boolean member_manager) {
+			LocalDate member_date, String member_address, boolean member_manager) {
 		super();
 		this.member_idx = member_idx;
 		this.member_id = member_id;
@@ -80,11 +77,11 @@ public class MemberDTO {
 		this.member_phone = member_phone;
 	}
 
-	public Date getMember_date() {
+	public LocalDate getMember_date() {
 		return member_date;
 	}
 
-	public void setMember_date(Date member_date) {
+	public void setMember_date(LocalDate member_date) {
 		this.member_date = member_date;
 	}
 

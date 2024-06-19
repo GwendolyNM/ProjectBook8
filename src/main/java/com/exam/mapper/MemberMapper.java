@@ -13,4 +13,5 @@ public interface MemberMapper {
 	public MemberDTO findById(String member_id);
 	public List<MemberDTO> findAll();
 	public MemberDTO idCheck(String member_id);
+	public List<MemberDTO> memberList();
 }

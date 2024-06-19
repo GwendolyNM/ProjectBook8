@@ -1,44 +1,52 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 <div class="container">
-	<c:forEach var="dto" items="${booksList}">
-		<div class="bookcard">
-			<div class="bookcard_img">
-				<img src="images/bookimage/${dto.book_image}" alt="">
-			</div>
-			<div class="bookcard_text" style="border: 1px;">
-				<table class="bookcard_info">
+	<div class="membercard">
+	
+		<div class="membercard_text" style="border: 1px;">
+			<table class="membercard_info" width=1100px>
+				<tr>
+					<td width=30px>No</td>
+					<td width=30px>아이디</td>
+					<td width=70px>비밀번호</td>
+					<td width=90px align="center">이름</td>
+					<td width=130px>연락처</td>
+					<td width=110px>생년월일</td>
+					<td width=430px>주소</td>
+
+				</tr>
+				<c:forEach var="dto" items="${memberList}">
 					<tr>
-						<td>등록번호</td>
-						<td>${dto.book_idx}</td>
-					</tr>
-					<tr>
-						<td>도서명</td>
-						<td>${dto.book_name}</td>
-					</tr>
-					<tr>
-						<td>저자</td>
-						<td>${dto.book_author}</td>
-					</tr>
-					<tr>
-						<td>출판사</td>
-						<td>${dto.book_pub}</td>
-					</tr>
-					<tr>
-						<td>발행년도</td>
-						<td>${dto.book_year}</td>
-					</tr>
-					<tr>
-						<td>주제명</td>
-						<td>소설</td>
-					</tr>
-				</table>
-				<div class="bookcard_button">
-					<button type="button" class="btn btn-secondary btn-sm btn-dark">장바구니</button>
-				</div>
-			</div>
+						<td>${dto.member_idx}</td>
+						<td>${dto.member_id}</td>
+						<td>${dto.member_pw}</td>
+						<td align="center">${dto.member_name}</td>
+						<td>${dto.member_phone}</td>
+						<td>${dto.member_date}</td>
+						<td>${dto.member_address}</td>
+						<form:form method="post" modelAttribute="memberDTO" action="editMember">
+						<td width=60px>
+							<div class="membercard_button">
+								<button type="submit" class="btn btn-secondary btn-sm btn-dark">수정</button>
+							</div>
+						</td>
+						</form:form>
+						<form:form method="post" modelAttribute="memberDTO" action="deleteMember">
+						<td width=60px>
+							<div class="membercard_button">
+								<button type="submit" class="btn btn-secondary btn-sm btn-dark">삭제</button>
+							</div>
+						</td>
+						</form:form>
+						</tr>
+				</c:forEach>
+			</table>
+
 		</div>
-	</c:forEach>
+	</div>
+
 </div>

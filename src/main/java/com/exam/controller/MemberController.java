@@ -1,6 +1,9 @@
 package com.exam.controller;
 
 
+import java.time.format.DateTimeFormatter;
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.slf4j.Logger;
@@ -9,6 +12,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,8 +39,6 @@ public class MemberController {
 		
 
 		model.put("memberDTO", new MemberDTO()); 
-
-
 		return "memberForm";
 	}
 
@@ -77,6 +79,8 @@ public class MemberController {
 		MemberDTO xxx = (MemberDTO)auth.getPrincipal();
 		return "redirect:home";
 	}
+	
+	
 }
 
 

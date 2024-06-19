@@ -41,6 +41,11 @@
                        <a class="nav-link" href="mypage">mypage</a>
                     </li>
                    </sec:authorize>
+                   <sec:authorize access="isAuthenticated()">
+                     <li class="nav-item">
+                       <a class="nav-link" href="memberList">회원관리</a>
+                    </li>
+                   </sec:authorize>
                    
                 </ul>
             </nav>
