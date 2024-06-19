@@ -2,7 +2,7 @@ package com.exam.service;
 
 import org.springframework.stereotype.Service;
 
-import com.exam.dto.Member;
+import com.exam.dto.MemberDTO;
 import com.exam.mapper.MemberMapper;
 
 @Service
@@ -16,12 +16,12 @@ public class MemberServiceImpl
 	}
 
 	@Override
-	public int save(Member member_id) {
+	public int save(MemberDTO member_id) {
 		return memberMapper.save(member_id);
 	}
 
 	@Override
-	public Member findById(String member_id) {
+	public MemberDTO findById(String member_id) {
 		return memberMapper.findById(member_id);
 	}
 

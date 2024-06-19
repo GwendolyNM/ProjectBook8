@@ -1,9 +1,9 @@
 package com.exam.service;
 
-import com.exam.dto.Member;
+import com.exam.dto.MemberDTO;
 
 public interface MemberService {
 
-	public int save(Member member_id);
-	public Member findById(String member_id);
+	public int save(MemberDTO member_id);
+	public MemberDTO findById(String member_id);
 }

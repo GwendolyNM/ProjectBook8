@@ -4,10 +4,11 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.exam.dto.GoodsDTO;
+import com.exam.dto.BooksDTO;
 
 @Mapper
 public interface BooksMapper {
 
-	public List<GoodsDTO> booksList();
+	public List<BooksDTO> booksList();
+	public void bookReserve();
 }

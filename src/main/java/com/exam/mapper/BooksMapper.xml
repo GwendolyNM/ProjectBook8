@@ -18,6 +18,11 @@
      from book
    </select>
    
+   <!--책 예약하기-->
+   <insert id="reserve" parameterType="String">
+		INSERT INTO `list` (`book_idx`, `member_idx`) 
+		VALUES (#{book_idx}, #{member_id})
+   </insert>
 </mapper>
 
 
