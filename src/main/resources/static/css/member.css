@@ -1,5 +1,5 @@
 @charset "UTF-8";
-#address {
+#member_address {
 
     width: 400px;
     text-align: left;
@@ -7,13 +7,6 @@
     font-size: 15px;
     
     }
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f8f8f8;
-    margin: 0;
-    padding: 0;
-}
 
 .container {
     width: 50%;

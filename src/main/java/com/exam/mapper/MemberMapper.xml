@@ -5,6 +5,12 @@
   
 <mapper namespace="com.exam.mapper.MemberMapper">
  
+ <select id="idCheck" parameterType="string" resultType="MemberDTO">
+ select *
+ from member
+ where member_id=#{member_id}
+ 
+ </select>
  
   <insert id="save" parameterType="MemberDTO">
   
@@ -36,6 +42,15 @@
 				     where member_id= #{member_id}
 	</select>
      
+        <!-- 회원가입 -->
+  	<insert id="memberAdd" parameterType="MemberDTO">
+  	  insert into member (passwd,username,post,addr1,addr2,
+  	                     phone1, phone2, phone3, email1, email2
+  	                    ) 
+  	  values(#{userid},#{passwd},#{username},#{post},#{addr1},#{addr2},
+  	                   #{phone1},#{phone2},#{phone3},#{email1},#{email2})
+
+  	</insert>
      
      <select id="deleteID" parameterType="string">
      
