@@ -49,6 +49,7 @@ button {
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
+	font-weight: bold;
     
 }
 
@@ -60,12 +61,4 @@ button {
 	margin: 0;
     width: 90px;
     font-size: 0.7rem;
-}
-
-/* Footer Styles */
-footer {
-    background-color: #333;
-    color: #fff;
-    padding: 10px;
-    text-align: center;
 }
