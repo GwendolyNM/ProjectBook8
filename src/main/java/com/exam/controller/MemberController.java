@@ -23,6 +23,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.exam.dto.MemberDTO;
 import com.exam.service.MemberService;
 
+import ch.qos.logback.core.recovery.ResilientSyslogOutputStream;
+
 @Controller
 public class MemberController {
 
@@ -61,16 +63,17 @@ public class MemberController {
 	@GetMapping("/idCheck")
 	public @ResponseBody String signup(@RequestParam String userid) {//$.ajax key값을 가지고 와야한다 기억! 
 
-		MemberDTO dto = memberService.idCheck(userid);
+		int checkId = memberService.idCheck(userid);
 		logger.info("userid={}", userid);
-		
-		
-		String mesg = "사용가능";
-		if(dto != null) {
+		String mesg;
+		if(checkId == 1) {
 			mesg = "사용불가";
+		}else {
+			mesg = "사용가능";
 		}
-		
 		return mesg;
+		
+		
 	}
 	
 	@GetMapping(value={"/mypage"})
