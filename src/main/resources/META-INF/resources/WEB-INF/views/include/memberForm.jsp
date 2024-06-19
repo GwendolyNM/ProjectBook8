@@ -22,6 +22,11 @@ $(document).ready(function() {
                  console.log("data:", data);
                  console.log("status:", status);
                  $("#idCheck").text(data);
+                 if(data=="사용불가"){
+                	 alert(data)
+                	 }
+                 
+                 
              },
              error:function(xhr, status, error){
                  console.log("error:", error);
@@ -31,10 +36,10 @@ $(document).ready(function() {
 	}); //end id 중복 체크
 
 		$("#member_pw").on("keyup", function() {
-			var member_pw = $("#member_pw").val();
-			var member_pw2 = $("#member_pw2").val();
+			var member_pw = $("#member_pw").val().trim();
+			var member_pw2 = $("#member_pw2").val().trim();
 			var mesg;
-			if (member_pw = member_pw2) {
+			if (member_pw === member_pw2) {
 				mesg = "비번 일치";
 			} else {
 				mesg = "비번 불일치";

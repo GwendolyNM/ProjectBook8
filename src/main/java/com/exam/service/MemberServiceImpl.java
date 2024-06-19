@@ -32,10 +32,7 @@ public class MemberServiceImpl
 		return memberMapper.memberList();
 	}
 
-	@Override
-	public MemberDTO idCheck(String member_id) {
-		return memberMapper.idCheck(member_id);
-	}
+
 
 	public List<MemberDTO> allMembers() {
 		return memberMapper.memberList();
@@ -43,6 +40,11 @@ public class MemberServiceImpl
 
 	@Override
 	public void editMember(MemberDTO memberDTO) {}
+
+	@Override
+	public int idCheck(String member_id) {
+		return  memberMapper.idCheck(member_id);
+	}
 
 
 
