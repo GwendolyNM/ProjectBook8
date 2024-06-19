@@ -2,11 +2,11 @@ package com.exam.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.exam.dto.Member;
+import com.exam.dto.MemberDTO;
 
 @Mapper
 public interface MemberMapper {
 
-	public int save(Member member_id);
-	public Member findById(String member_id);
+	public int save(MemberDTO member_id);
+	public MemberDTO findById(String member_id);
 }

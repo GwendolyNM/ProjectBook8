@@ -12,7 +12,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.exam.dto.Member;
+import com.exam.dto.MemberDTO;
 import com.exam.service.MemberService;
 
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -33,12 +33,12 @@ public class MemberController {
 	@GetMapping(value={"/signup"})
 	public String showSignupPage(ModelMap model) {
 		
-		model.put("member", new Member());  // modelAttribute="member", 반드시 Command bean 이름으로 key값을 설정해야 됨.
+		model.put("memberDTO", new MemberDTO()); 
 		return "memberForm";
 	}
 
 	@PostMapping(value={"/signup"})
-	public String showSignUpSuccessPage(@Valid Member member, 
+	public String showSignUpSuccessPage(@Valid MemberDTO member, 
 			BindingResult result) {
 	
 		
@@ -56,7 +56,7 @@ public class MemberController {
 	@GetMapping(value={"/mypage"})
 	public String mypage() {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		Member xxx = (Member)auth.getPrincipal();
+		MemberDTO xxx = (MemberDTO)auth.getPrincipal();
 		return "redirect:home";
 	}
 }
