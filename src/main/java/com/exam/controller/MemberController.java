@@ -33,7 +33,10 @@ public class MemberController {
 	@GetMapping(value={"/signup"})
 	public String showSignupPage(ModelMap model) {
 		
+
 		model.put("memberDTO", new MemberDTO()); 
+
+
 		return "memberForm";
 	}
 

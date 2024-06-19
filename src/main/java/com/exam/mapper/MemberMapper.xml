@@ -6,6 +6,7 @@
 <mapper namespace="com.exam.mapper.MemberMapper">
  
  
+
 <insert id="save" parameterType="MemberDTO">
 
     insert into member (
@@ -28,6 +29,7 @@
         from member
         where member_idx= #{member_idx}
      </select>
+
 </mapper>
 
 

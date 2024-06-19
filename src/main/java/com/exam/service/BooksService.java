@@ -2,9 +2,10 @@ package com.exam.service;
 
 import java.util.List;
 
-import com.exam.dto.GoodsDTO;
+import com.exam.dto.BooksDTO;
 
 public interface BooksService {
 
-	public List<GoodsDTO> booksList();
+	public List<BooksDTO> booksList();
+	public void bookReserve();
 }
