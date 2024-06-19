@@ -46,26 +46,27 @@
                     <form:input type="passwd" path="member_pw" />
   					 <form:errors path="member_pw" cssClass="text-warning"/>
                 </div>
-                 <div>
+                <div>
                     <label for="member_pw">비밀번호 확인</label>
-                    <form:input type="passwd" path="member_pw" />
-  					 <form:errors path="member_pw" cssClass="text-warning"/>
+                    <input type="password"  />
                 </div>
-                
+
                 
                  <div>
+
                     <label for="member_name">이름</label>
                     <form:input type="text" path="member_name" />
                     <form:errors path="member_name" cssClass="text-warning"/>
                 </div>
-                 <div>
+
+                   <div>
                     <label for="member_phone">전화번호</label>
                     <form:input type="text" path="member_phone" />
                     <form:errors path="member_phone" cssClass="text-warning"/>
-                    <form:input type="text" path="member_phone" />
-                    <form:errors path="member_phone" cssClass="text-warning"/>
+         
                 </div>
-                <div>
+
+
                     <label for="member_address">주소</label>
                     <form:input type="text" path="member_address" />
                     <form:errors path="member_address" cssClass="text-warning"/>
