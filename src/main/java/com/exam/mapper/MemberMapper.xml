@@ -6,7 +6,8 @@
 <mapper namespace="com.exam.mapper.MemberMapper">
  
  
-     <insert id="save" parameterType="Member">
+<insert id="save" parameterType="Member">
+
     insert into member (
         member_id, 
         member_pw, 
@@ -21,9 +22,7 @@
         #{member_phone}, 
         #{member_address}
     )
-</insert>
-
-   
+</insert>   
      <select id="findById" parameterType="string" resultType="Member">
         select member_idx, member_id, member_pw, member_name, member_phone, member_date, member_address, member_manager
         from member
