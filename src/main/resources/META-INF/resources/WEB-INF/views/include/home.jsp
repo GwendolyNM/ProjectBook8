@@ -2,11 +2,8 @@
     pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-  <div class="TodoApp">
-    <div class="container">
-		<div class="back-image">
-			<input type="text">
-			<input type="submit">
-		</div>
-	</div>
-  </div>
+  
+<div class="back-image">
+	<input type="text">
+	<button type="button" class="btn btn-secondary btn-sm btn-dark">검색</button>
+</div>
