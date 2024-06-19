@@ -29,7 +29,7 @@ public class MemberServiceImpl
 
 	@Override
 	public List<MemberDTO> memberList() {
-		return memberMapper. memberList();
+		return memberMapper.memberList();
 	}
 
 	@Override

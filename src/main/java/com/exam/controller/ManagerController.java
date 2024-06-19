@@ -28,14 +28,10 @@ public class ManagerController {
 	}
 	
 	@GetMapping(value={"/memberList"})
-	public String showMemberPage(@Valid MemberDTO member, 
-			BindingResult result) {
+	public String showMemberList(ModelMap m){
 		
-		if(result.hasErrors()) {
-			return "redirect:home";
-		}
-		List<MemberDTO> memberDTO = memberService.memberList();
-			
+		List<MemberDTO> memberList = memberService.memberList();
+		m.addAttribute("memberList",memberList);
 		return "memberList";
 	}
 	
