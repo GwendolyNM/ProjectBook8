@@ -6,28 +6,30 @@
 <mapper namespace="com.exam.mapper.MemberMapper">
  
  
-	<insert id="save" parameterType="MemberDTO">
-	
-	    insert into member (
-	        member_id, 
-	        member_pw, 
-	        member_name, 
-	        member_phone,
-	        member_address
-	    ) 
-	    values (
-	        #{member_id}, 
-	        #{member_pw}, 
-	        #{member_name}, 
-	        #{member_phone}, 
-	        #{member_address}
-	    )
-	</insert>   
-	 <select id="findById" parameterType="string" resultType="MemberDTO">
-	    select member_idx, member_id, member_pw, member_name, member_phone, member_date, member_address, member_manager
-	    from member
-	    where member_idx= #{member_idx}
-	 </select>
+
+<insert id="save" parameterType="MemberDTO">
+
+    insert into member (
+        member_id, 
+        member_pw, 
+        member_name, 
+        member_phone,
+        member_address
+    ) 
+    values (
+        #{member_id}, 
+        #{member_pw}, 
+        #{member_name}, 
+        #{member_phone}, 
+        #{member_address}
+    )
+</insert>   
+     <select id="findById" parameterType="string" resultType="MemberDTO">
+        select member_idx, member_id, member_pw, member_name, member_phone, member_date, member_address, member_manager
+        from member
+        where member_idx= #{member_idx}
+     </select>
+
 </mapper>
 
 

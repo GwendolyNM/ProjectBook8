@@ -33,7 +33,10 @@ public class MemberController {
 	@GetMapping(value={"/signup"})
 	public String showSignupPage(ModelMap model) {
 		
-		model.put("member", new MemberDTO());  // modelAttribute="member", 반드시 Command bean 이름으로 key값을 설정해야 됨.
+
+		model.put("memberDTO", new MemberDTO()); 
+
+
 		return "memberForm";
 	}
 
