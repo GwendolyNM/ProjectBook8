@@ -69,11 +69,7 @@ $(document).ready(function() {
 					</div>
 					<div>
 						<label for="member_pw">비밀번호 확인</label> <input type="password"
-<<<<<<< HEAD
 							class="member_pw2" name="member_pw2"  id="member_pw2" />
-=======
-							class="member_pw2" name="member_pw2" id="member_pw2" />
->>>>>>> HJG
 					</div>
 
 					<span id="pwdcheck" class="fs-5"></span>

@@ -22,7 +22,7 @@
 				<c:forEach var="dto" items="${memberList}">
 					<tr>
 						<td>${dto.member_idx}</td>
-						<td>${dto.memb	er_id}</td>
+						<td>${dto.member_id}</td>
 						<td>${dto.member_pw}</td>
 						<td align="center">${dto.member_name}</td>
 						<td>${dto.member_phone}</td>

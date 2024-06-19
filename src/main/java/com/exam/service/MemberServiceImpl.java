@@ -33,12 +33,10 @@ public class MemberServiceImpl
 	}
 
 	@Override
-<<<<<<< HEAD
 	public MemberDTO idCheck(String member_id) {
 		return memberMapper.idCheck(member_id);
 	}
 
-=======
 	public List<MemberDTO> allMembers() {
 		return memberMapper.memberList();
 	}
@@ -46,7 +44,6 @@ public class MemberServiceImpl
 	@Override
 	public void editMember(MemberDTO memberDTO) {}
 
->>>>>>> HJG
 
 
 }
