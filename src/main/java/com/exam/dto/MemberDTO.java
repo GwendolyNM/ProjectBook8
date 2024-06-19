@@ -7,8 +7,8 @@ import javax.validation.constraints.Size;
 
 import org.apache.ibatis.type.Alias;
 
-@Alias("Member")
-public class Member {
+@Alias("MemberDTO")
+public class MemberDTO {
 	int member_idx;
 	String member_id;
 	String member_pw;
@@ -18,7 +18,7 @@ public class Member {
 	String member_address;
 	boolean member_manager;
 	
-	public Member() {}
+	public MemberDTO() {}
 
 	@Override
 	public String toString() {
@@ -27,7 +27,7 @@ public class Member {
 				+ ", member_address=" + member_address + ", member_manager=" + member_manager + "]";
 	}
 
-	public Member(int member_idx, String member_id, String member_pw, String member_name, String member_phone,
+	public MemberDTO(int member_idx, String member_id, String member_pw, String member_name, String member_phone,
 			Date member_date, String member_address, boolean member_manager) {
 		super();
 		this.member_idx = member_idx;

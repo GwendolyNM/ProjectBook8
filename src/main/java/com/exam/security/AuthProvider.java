@@ -14,7 +14,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
-import com.exam.dto.Member;
+import com.exam.dto.MemberDTO;
 import com.exam.service.MemberService;
 
 @Component
@@ -30,7 +30,7 @@ public class AuthProvider implements AuthenticationProvider {
 		String member_pw = (String)authentication.getCredentials(); // name="passwd" 값
 		
 		
-		Member mem = memberService.findById(member_id);
+		MemberDTO mem = memberService.findById(member_id);
 //		String encrptPw = mem.getPasswd();  // NullPointerExcepion 발생되기 때문에 사용안됨.
 		
 		//Authentication 하위클래스
