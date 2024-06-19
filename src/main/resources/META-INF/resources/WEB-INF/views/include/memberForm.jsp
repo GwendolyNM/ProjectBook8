@@ -25,7 +25,7 @@
   			  
   		  });
   		  
-  	  });
+  	  });//ready
   
   </script>
  
@@ -37,19 +37,38 @@
               <form:form  method="post" modelAttribute="member" 
               action="signup">
                 <div>
-                    <label for="member_id">member_id</label>
+                    <label for="member_id">아이디</label>
                     <form:input type="text" path="member_id" />
                     <form:errors path="member_id" cssClass="text-warning"/>
                 </div>
                 <div>
-                    <label for="member_pw">member_pw</label>
-                    <form:input type="passwd" path="member_pw" value="1234" />
+                    <label for="member_pw">비밀번호</label>
+                    <form:input type="passwd" path="member_pw" />
   					 <form:errors path="member_pw" cssClass="text-warning"/>
                 </div>
                  <div>
-                    <label for="member_name">member_name:</label>
+                    <label for="member_pw">비밀번호 확인</label>
+                    <form:input type="passwd" path="member_pw" />
+  					 <form:errors path="member_pw" cssClass="text-warning"/>
+                </div>
+                
+                
+                 <div>
+                    <label for="member_name">이름</label>
                     <form:input type="text" path="member_name" />
                     <form:errors path="member_name" cssClass="text-warning"/>
+                </div>
+                 <div>
+                    <label for="member_phone">전화번호</label>
+                    <form:input type="text" path="member_phone" />
+                    <form:errors path="member_phone" cssClass="text-warning"/>
+                    <form:input type="text" path="member_phone" />
+                    <form:errors path="member_phone" cssClass="text-warning"/>
+                </div>
+                <div>
+                    <label for="member_address">주소</label>
+                    <form:input type="text" path="member_address" />
+                    <form:errors path="member_address" cssClass="text-warning"/>
                 </div>
                 <div>
                     <button name="login" class="btn btn-success m-5" >signup</button>
