@@ -32,6 +32,11 @@ public class MemberServiceImpl
 		return memberMapper.findAll();
 	}
 
+	@Override
+	public MemberDTO idCheck(String member_id) {
+		return memberMapper.idCheck(member_id);
+	}
+
 
 
 }
