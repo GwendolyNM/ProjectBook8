@@ -11,6 +11,10 @@ public interface MemberMapper {
 
 	public int save(MemberDTO member_id);
 	public MemberDTO findById(String member_id);
+<<<<<<< HEAD
 	public List<MemberDTO> findAll();
 	public MemberDTO idCheck(String member_id);
+=======
+	public List<MemberDTO> memberList();
+>>>>>>> HJG
 }

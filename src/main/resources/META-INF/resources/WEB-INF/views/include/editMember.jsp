@@ -6,44 +6,6 @@
 
 <script src="webjars/bootstrap/5.1.3/js/bootstrap.min.js"></script>
 <script src="webjars/jquery/3.6.0/jquery.min.js"></script>
-<script>
-$(document).ready(function() {
-	// id 중복 체크
-	$("#idDupulicatedcheck").on("click", function(){
-		  
-		   $.ajax({
-             method:"get",
-             url:"idCheck",   
-             dataType:'text', 
-             data:{
-          	   userid:$("#member_id").val()
-             },
-             success:function(data, status, xhr){
-                 console.log("data:", data);
-                 console.log("status:", status);
-                 $("#idCheck").text(data);
-             },
-             error:function(xhr, status, error){
-                 console.log("error:", error);
-             }
-
-         });
-	}); //end id 중복 체크
-
-		$("#member_pw").on("keyup", function() {
-			var member_pw = $("#member_pw").val();
-			var member_pw2 = $("#member_pw2").val();
-			var mesg;
-			if (member_pw = member_pw2) {
-				mesg = "비번 일치";
-			} else {
-				mesg = "비번 불일치";
-			}
-			$("#pwdcheck").text(mesg);
-		})
-
-	});//ready
-</script>
 
 <div class="TodoApp">
 	<div class="container">
@@ -69,19 +31,13 @@ $(document).ready(function() {
 					</div>
 					<div>
 						<label for="member_pw">비밀번호 확인</label> <input type="password"
-<<<<<<< HEAD
-							class="member_pw2" name="member_pw2"  id="member_pw2" />
-=======
 							class="member_pw2" name="member_pw2" id="member_pw2" />
->>>>>>> HJG
 					</div>
 
 					<span id="pwdcheck" class="fs-5"></span>
 
 
 					<div>
-
-
 						<label for="member_name">이름</label>
 						<form:input type="text" path="member_name" />
 						<form:errors path="member_name" cssClass="text-warning" />
@@ -95,12 +51,12 @@ $(document).ready(function() {
 					</div>
 
 					<div>
-						<label id="member_address" for="member_address">주소</label>
+						<label for="member_address">주소</label>
 						<form:input type="text" path="member_address" />
 						<form:errors path="member_address" cssClass="text-warning" />
 					</div>
 					<div>
-						<button name="login" class="btn btn-success m-5">signup</button>
+						<button name="edit" class="btn btn-success m-5">수정</button>
 					</div>
 				</form:form>
 			</div>

@@ -22,7 +22,7 @@ public class BookController {
 		this.booksService = booksService;
 	}
 	
-	@GetMapping(value={"/books"})
+	@GetMapping(value={ "/books"})
 	public String showHomePage(ModelMap m) {
 		
 			List<BooksDTO> booksList = booksService.booksList();

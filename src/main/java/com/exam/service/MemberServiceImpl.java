@@ -29,14 +29,24 @@ public class MemberServiceImpl
 
 	@Override
 	public List<MemberDTO> memberList() {
-		return memberMapper.findAll();
+		return memberMapper.memberList();
 	}
 
 	@Override
+<<<<<<< HEAD
 	public MemberDTO idCheck(String member_id) {
 		return memberMapper.idCheck(member_id);
 	}
 
+=======
+	public List<MemberDTO> allMembers() {
+		return memberMapper.memberList();
+	}
+
+	@Override
+	public void editMember(MemberDTO memberDTO) {}
+
+>>>>>>> HJG
 
 
 }

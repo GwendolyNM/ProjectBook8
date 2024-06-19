@@ -10,8 +10,6 @@ import com.exam.mapper.BooksMapper;
 @Service
 public class BooksServiceImpl implements BooksService{
 
-	
-
 	BooksMapper booksMapper;
 	
 	public BooksServiceImpl(BooksMapper booksMapper) {

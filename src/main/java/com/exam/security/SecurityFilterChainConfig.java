@@ -15,7 +15,11 @@ public class SecurityFilterChainConfig {
 		
 		//1. 불필요한 인증제거
 		http.authorizeRequests()
+<<<<<<< HEAD
 		    .antMatchers("/login","/home","/signup","/webjars/**","/images/**","/books","/css/**","/js/**","/idCheck").permitAll()
+=======
+		    .antMatchers("/login","/home","/signup","/webjars/**","/images/**","/books","/css/**","/js/**","/editMember","/memberList").permitAll()
+>>>>>>> HJG
 		    .anyRequest()
 		    .authenticated();
 		
