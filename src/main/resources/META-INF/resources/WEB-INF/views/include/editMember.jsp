@@ -6,23 +6,6 @@
 
 <script src="webjars/bootstrap/5.1.3/js/bootstrap.min.js"></script>
 <script src="webjars/jquery/3.6.0/jquery.min.js"></script>
-<script>
-	$(document).ready(function() {
-
-		$("#member_pw").on("keyup", function() {
-			var member_pw = $("#member_pw").val();
-			var member_pw2 = $("#member_pw2").val();
-			var mesg;
-			if (member_pw = member_pw2) {
-				mesg = "비번 일치";
-			} else {
-				mesg = "비번 불일치";
-			}
-			$("#pwdcheck").text(mesg);
-		})
-
-	});//ready
-</script>
 
 <div class="TodoApp">
 	<div class="container">
@@ -55,8 +38,6 @@
 
 
 					<div>
-
-
 						<label for="member_name">이름</label>
 						<form:input type="text" path="member_name" />
 						<form:errors path="member_name" cssClass="text-warning" />
@@ -75,7 +56,7 @@
 						<form:errors path="member_address" cssClass="text-warning" />
 					</div>
 					<div>
-						<button name="login" class="btn btn-success m-5">signup</button>
+						<button name="edit" class="btn btn-success m-5">수정</button>
 					</div>
 				</form:form>
 			</div>

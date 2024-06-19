@@ -29,8 +29,16 @@ public class MemberServiceImpl
 
 	@Override
 	public List<MemberDTO> memberList() {
-		return memberMapper.findAll();
+		return memberMapper. memberList();
 	}
+
+	@Override
+	public List<MemberDTO> allMembers() {
+		return memberMapper.memberList();
+	}
+
+	@Override
+	public void editMember(MemberDTO memberDTO) {}
 
 
 
