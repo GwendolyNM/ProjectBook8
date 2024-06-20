@@ -1,9 +1,6 @@
 package com.exam.controller;
 
 
-import java.time.format.DateTimeFormatter;
-import java.util.List;
-
 import javax.validation.Valid;
 
 import org.slf4j.Logger;
@@ -23,8 +20,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.exam.dto.MemberDTO;
 import com.exam.service.MemberService;
 
-import ch.qos.logback.core.recovery.ResilientSyslogOutputStream;
-
 @Controller
 public class MemberController {
 
@@ -43,12 +38,25 @@ public class MemberController {
 		model.put("memberDTO", new MemberDTO()); 
 		return "memberForm";
 	}
-
-	@PostMapping(value={"/signup"})
-	public String showSignUpSuccessPage(@Valid MemberDTO member, 
-			BindingResult result) {
 	
-		
+	@PostMapping(value={"/signup"})
+	public String showSignUpSuccessPage(
+            @RequestParam("phone1") String phone1,
+            @RequestParam("phone2") String phone2,
+            @RequestParam("phone3") String phone3,
+            @RequestParam("addressDetail") String addressDetail,
+            @RequestParam("addressRoad") String addressRoad,
+            @RequestParam("addressJibun") String addressJibun,
+            Model m,
+			@Valid MemberDTO member, BindingResult result) {
+
+		String memberPhone = phone1+"-"+phone2+"-"+phone3;
+
+		member.setMember_phone(memberPhone);
+       
+        String memberAddress =   addressRoad +" "+ addressJibun +" "+ addressDetail;
+        
+        member.setMember_address(memberAddress);
 		if(result.hasErrors()) {
 			return "memberForm";
 		}
@@ -57,7 +65,13 @@ public class MemberController {
 				new BCryptPasswordEncoder().encode(member.getMember_pw());
 		member.setMember_pw(encptPw);
 		int n = memberService.save(member);
+		if(n>0) {
+			m.addAttribute("message", "회원가입 성공");
+			return "redirect:home";
+		}else {
+			m.addAttribute("message", "회원가입 실패");
 		return "redirect:home";
+		}
 	}
 	
 	@GetMapping("/idCheck")

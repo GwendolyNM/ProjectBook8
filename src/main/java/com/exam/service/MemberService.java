@@ -2,7 +2,6 @@ package com.exam.service;
 
 import java.util.List;
 
-import com.exam.dto.BooksDTO;
 import com.exam.dto.MemberDTO;
 
 public interface MemberService {
