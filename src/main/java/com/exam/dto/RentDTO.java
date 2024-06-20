@@ -3,11 +3,11 @@ package com.exam.dto;
 public class RentDTO {
 
 	String book_idx;
-	String member_idx;
+	String member_id;
 	public RentDTO() {}
 	public RentDTO(String book_idx, String member_idx) {
 		this.book_idx = book_idx;
-		this.member_idx = member_idx;
+		this.member_id = member_idx;
 	}
 	public String getBook_idx() {
 		return book_idx;
@@ -16,14 +16,14 @@ public class RentDTO {
 		this.book_idx = book_idx;
 	}
 	public String getMember_idx() {
-		return member_idx;
+		return member_id;
 	}
 	public void setMember_idx(String member_idx) {
-		this.member_idx = member_idx;
+		this.member_id = member_idx;
 	}
 	@Override
 	public String toString() {
-		return "RentDTO [book_idx=" + book_idx + ", member_idx=" + member_idx + "]";
+		return "RentDTO [book_idx=" + book_idx + ", member_idx=" + member_id + "]";
 	}
 	
 	

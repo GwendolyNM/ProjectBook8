@@ -41,7 +41,11 @@
 					</tr>
 				</table>
 				<div class="bookcard_button">
-					<button type="button" class="btn btn-secondary btn-sm btn-dark fw-bold">대여하기</button>
+					<form method="post" action="rent">
+						<!-- 숨겨진 필드로 등록번호를 전송 -->
+						<input type="hidden" name="book_idx" value="${dto.book_idx}">
+						<button type="submit" class="btn btn-secondary btn-sm btn-dark fw-bold">예약하기</button>
+					</form>
 				</div>
 			</div>
 		</div>
