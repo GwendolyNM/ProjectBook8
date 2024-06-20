@@ -42,18 +42,13 @@
 
    
    <!--책 예약하기-->
-   <insert id="rent" parameterType="String">
+   <insert id="rent" parameterType="RentDTO">
 		insert into member (
-				           member_id, 
-				           member_pw, 
-				           member_name, 
-				           member_phone,
-				           member_address
-			   ) values (  #{member_id}, 
-				           #{member_pw}, 
-				           #{member_name}, 
-				           #{member_phone}, 
-				           #{member_address})
+				           book_idx,
+				           member_idx,
+						   ) values (  
+						   #{book_idx}, 
+				           #{member_idx})
    </insert>
 </mapper>
 

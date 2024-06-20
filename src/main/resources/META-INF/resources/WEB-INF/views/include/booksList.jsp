@@ -41,7 +41,7 @@
 					</tr>
 				</table>
 				<div class="bookcard_button">
-					<button type="button" class="btn btn-secondary btn-sm btn-dark fw-bold">장바구니</button>
+					<button type="button" class="btn btn-secondary btn-sm btn-dark fw-bold">대여하기</button>
 				</div>
 			</div>
 		</div>

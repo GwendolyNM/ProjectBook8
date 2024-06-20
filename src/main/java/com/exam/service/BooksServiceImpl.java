@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.exam.dto.BooksDTO;
+import com.exam.dto.RentDTO;
 import com.exam.mapper.BooksMapper;
 
 @Service
@@ -22,14 +23,14 @@ public class BooksServiceImpl implements BooksService{
 	}
 
 	@Override
-	public void bookReserve() {
-		
-		
+	public List<BooksDTO> searchBooksList(String keyword) {
+		return booksMapper.searchBooksList(keyword);
 	}
 
 	@Override
-	public List<BooksDTO> searchBooksList(String keyword) {
-		return booksMapper.searchBooksList(keyword);
+	public int rentBook(RentDTO rentDTO) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 		
