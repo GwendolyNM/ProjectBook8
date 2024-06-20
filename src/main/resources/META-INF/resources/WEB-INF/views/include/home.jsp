@@ -4,6 +4,8 @@
 
   
 <div class="back-image">
-	<input type="text">
-	<button type="button" class="btn btn-secondary btn-sm btn-dark">검색</button>
+	<form action="/app/books" method="get" class="booklist-search">
+		<input type="text" id="keyword" name="keyword">
+		<button type="submit" class="btn btn-secondary btn-sm btn-dark">검색</button>
+	</form>
 </div>

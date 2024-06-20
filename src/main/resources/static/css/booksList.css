@@ -3,7 +3,6 @@
 button {
     background-color: black;
 }
-
 .bookcard{
     display: flex;
     align-items: center;
@@ -11,23 +10,19 @@ button {
     height: 200px;
 	padding-bottom: 20px;
 }
-
 .bookcard table {
     font-size: 0.7rem;
 }
-
 .bookcard_img {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 140px;
 }
-
 .bookcard_img img{
     width: 110px;
     height: 180px;
 }
-
 .bookcard_text {
     border: 1px solid black;
     height: 100%;
@@ -36,27 +31,21 @@ button {
     justify-content: space-between;
     flex-direction: column;
 }
-
 .bookcard_text table {
     width: 100%;
     text-overflow: ellipsis;
 }
-
 .bookcard_text table td{
-	/*border: 1px solid #ccc;*/
 	padding: 3px;
-	max-width: 150px; /* You can adjust this value as needed */
+	max-width: 150px;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	font-weight: bold;
-    
 }
-
 .bookcard_button{
 	padding: 0;
 }
-
 .bookcard_button button{
 	margin: 0;
     width: 90px;

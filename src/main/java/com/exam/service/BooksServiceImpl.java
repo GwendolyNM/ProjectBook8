@@ -26,7 +26,12 @@ public class BooksServiceImpl implements BooksService{
 		
 		
 	}
-	
-	
+
+	@Override
+	public List<BooksDTO> searchBooksList(String keyword) {
+		return booksMapper.searchBooksList(keyword);
+	}
+
+		
 
 }
