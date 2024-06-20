@@ -2,54 +2,52 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
-<mapper namespace="com.exam.mapper.BooksMapper">
- 
-   <!-- 책목록 -->
-   <select id="booksList" parameterType="string" resultType="BooksDTO">
-     select book_idx,
-            book_author,
-            book_pub,
-            book_name,
-            book_year,
-            book_ISBN,
-            book_image,
-            book_genre_idx
-     from book
-   </select>
-   
-   <!-- 책검색 -->
-   <select id="searchBooksList" parameterType="string" resultType="BooksDTO">
-    SELECT 
-        book_idx,
-        book_author,
-        book_pub,
-        book_name,
-        book_year,
-        book_ISBN,
-        book_image,
-        book_genre_idx
-    FROM 
-        book
-    WHERE  
-        book_idx LIKE CONCAT('%', #{keyword}, '%')
-        OR book_author LIKE CONCAT('%', #{keyword}, '%')
-        OR book_pub LIKE CONCAT('%', #{keyword}, '%')
-        OR book_name LIKE CONCAT('%', #{keyword}, '%')
-        OR book_year LIKE CONCAT('%', #{keyword}, '%')
-        OR book_ISBN LIKE CONCAT('%', #{keyword}, '%')
-</select>
 
-   
-   <!--책 예약하기-->
-   <insert id="rent" parameterType="RentDTO">
-		insert into member (
-				           book_idx,
-				           member_idx,
-						   ) values (  
-						   #{book_idx}, 
-				           #{member_idx})
-   </insert>
+<mapper namespace="com.exam.mapper.BooksMapper">
+
+	<!-- 책목록 -->
+	<select id="booksList" parameterType="string"
+		resultType="BooksDTO">
+		select book_idx,
+		book_author,
+		book_pub,
+		book_name,
+		book_year,
+		book_ISBN,
+		book_image,
+		book_genre_idx
+		from book
+	</select>
+
+	<!-- 책검색 -->
+	<select id="searchBooksList" parameterType="string"
+		resultType="BooksDTO">
+		SELECT
+		book_idx,
+		book_author,
+		book_pub,
+		book_name,
+		book_year,
+		book_ISBN,
+		book_image,
+		book_genre_idx
+		FROM
+		book
+		WHERE
+		book_idx LIKE CONCAT('%', #{keyword}, '%')
+		OR book_author LIKE CONCAT('%', #{keyword}, '%')
+		OR book_pub LIKE CONCAT('%', #{keyword}, '%')
+		OR book_name LIKE CONCAT('%', #{keyword}, '%')
+		OR book_year LIKE CONCAT('%', #{keyword}, '%')
+		OR book_ISBN LIKE CONCAT('%', #{keyword}, '%')
+	</select>
+
+
+	<!--책 예약하기 -->
+	<insert id="rentBook" parameterType="RentDTO">
+		INSERT INTO rent (book_idx, member_idx, rent_date, rent_return)
+		VALUES (#{book_idx}, (SELECT member_idx FROM member WHERE member_name = #{member_id}), NOW(), NOW());
+	</insert>
 </mapper>
 
 

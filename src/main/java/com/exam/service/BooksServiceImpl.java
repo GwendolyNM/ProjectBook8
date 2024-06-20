@@ -29,8 +29,7 @@ public class BooksServiceImpl implements BooksService{
 
 	@Override
 	public int rentBook(RentDTO rentDTO) {
-		// TODO Auto-generated method stub
-		return 0;
+		return booksMapper.rentBook(rentDTO);
 	}
 
 		

@@ -10,9 +10,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.exam.dto.BooksDTO;
+import com.exam.dto.MemberDTO;
+import com.exam.dto.RentDTO;
 import com.exam.service.BooksService;
 
 @Controller
@@ -39,15 +42,17 @@ public class BookController {
 	        model.addAttribute("booksList", booksList);
 	        return "books";
 	    }
-	 @GetMapping("/rent")
-	    public String getUser(Model model) {
+	 @PostMapping("/rent")
+	    public String rentBookController(@RequestParam("book_idx") String bookIdx, RentDTO rentDTO) {
 	        // 인증된 사용자 정보 가져오기
-	        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-	        String currentPrincipalName = authentication.getName();
+		 	Object principal  = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+	        MemberDTO memberDTO = (MemberDTO)principal ;
+	        String username = memberDTO.getMember_name();
+	        rentDTO.setBook_idx(bookIdx);
+	        rentDTO.setMember_idx(username);
+	        booksService.rentBook(rentDTO);
 	        
-	        // 사용자 이름을 모델에 추가하여 JSP에 전달
-	        model.addAttribute("username", currentPrincipalName);
-	        logger.info("logger:{}", currentPrincipalName);
+	        logger.info("logger:{}", rentDTO);
 	        return "redirect:books";
 	    }
 	
