@@ -28,22 +28,20 @@
 				           member_name = #{member_name},
 				           member_phone= #{member_phone},
 				           member_address = #{member_address}  
-				     where member_idx=#{member_idx}   	
+				     where member_id=#{member_id}   	
      </update>
      
      
 	 <!-- 관리자 : 특정회원 조회 -->
-	 <select id="getMember" parameterType="int" resultType="MemberDTO">
+	 <select id="getMember" parameterType="string" resultType="MemberDTO">
 	 
-					select member_idx, 
-				      	   member_id, 
-				      	   left(member_pw, 8) as member_pw, 
+					select member_id, 
 				      	   member_name, 
 				      	   member_phone, 
 				      	   member_date, 
 				      	   member_address 
 	 				  from member
-	 				 where member_idx=#{member_idx}
+	 				 where member_id=#{member_id}
 	 </select>
 	 
 	 

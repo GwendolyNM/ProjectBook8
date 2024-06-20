@@ -28,13 +28,8 @@ public class ManagerServiceImpl implements ManagerService{
 	}
 
 	@Override
-	public MemberDTO getMember(int member_idx) {
-		return this.managerMapper.getMember(member_idx);
-	}
-
-	@Override
-	public MemberDTO idCheck2(String member_id) {
-		return this.idCheck2(member_id);
+	public MemberDTO getMember(String member_id) {
+		return this.managerMapper.getMember(member_id);
 	}
 
 	@Override
