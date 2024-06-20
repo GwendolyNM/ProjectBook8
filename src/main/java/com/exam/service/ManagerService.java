@@ -6,6 +6,11 @@ import com.exam.dto.MemberDTO;
 
 public interface ManagerService {
 	public List<MemberDTO> memberList();
-	public void editMember(MemberDTO memberDTO);
+	public List<MemberDTO> editMember();
+	
+	public MemberDTO getMember(int member_idx);
 	public MemberDTO idCheck2(String member_id);
+	
+	public int saveMember(MemberDTO memberDTO);
+	public int deleteMember(int member_idx);
 }

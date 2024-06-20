@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>관리자모드 : 회원수정</title>
 
 <link href="webjars/bootstrap/5.1.3/css/bootstrap.min.css"  rel="stylesheet" >
 <link rel="stylesheet" type="text/css" href="/app/css/member.css">
