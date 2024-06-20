@@ -10,5 +10,6 @@ import com.exam.dto.BooksDTO;
 public interface BooksMapper {
 
 	public List<BooksDTO> booksList();
+	public List<BooksDTO> searchBooksList(String keyword);
 	public void bookReserve();
 }

@@ -12,12 +12,10 @@ public class BooksDTO {
 	int book_genre_idx;
 	
 	public BooksDTO() {
-		super();
 	}
 	
 	public BooksDTO(String book_idx, String book_author, String book_pub, String book_name, int book_year,
 			String book_ISBN, String book_image, int book_genre_idx) {
-		
 		this.book_idx = book_idx;
 		this.book_author = book_author;
 		this.book_pub = book_pub;
@@ -27,7 +25,6 @@ public class BooksDTO {
 		this.book_image = book_image;
 		this.book_genre_idx = book_genre_idx;
 	}
-	
 	public String getBook_idx() {
 		return book_idx;
 	}
@@ -83,6 +80,8 @@ public class BooksDTO {
 				+ ", book_name=" + book_name + ", book_year=" + book_year + ", book_ISBN=" + book_ISBN + ", book_image="
 				+ book_image + ", book_genre_idx=" + book_genre_idx + "]";
 	}
+	
+	
 	
 	
 
