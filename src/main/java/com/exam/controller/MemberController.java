@@ -67,12 +67,14 @@ public class MemberController {
 		int n = memberService.save(member);
 		if(n>0) {
 			m.addAttribute("message", "회원가입 성공");
-			return "redirect:home";
+			return "redirect:/home?signupSuccess=true";
 		}else {
 			m.addAttribute("message", "회원가입 실패");
-		return "redirect:home";
+		return "memberForm:";
 		}
 	}
+	
+
 	
 	@GetMapping("/idCheck")
 	public @ResponseBody String signup(@RequestParam String userid) {//$.ajax key값을 가지고 와야한다 기억! 
@@ -86,7 +88,6 @@ public class MemberController {
 			mesg = "사용가능";
 		}
 		return mesg;
-		
 		
 	}
 	
