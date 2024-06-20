@@ -2,20 +2,36 @@ package com.exam.dto;
 
 import java.time.LocalDate;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
 import org.apache.ibatis.type.Alias;
 
 @Alias("MemberDTO")
 public class MemberDTO {
 	int member_idx;
+	
+	@NotBlank(message = "id를 입력해주세요")
 	String member_id;
+	
+	@NotBlank(message = "비밀번호를 입력해주세요")
+	@Size(min = 8, message = "비밀번호는 최소 8자 이상이어야 합니다.")
 	String member_pw;
+	
+	@NotBlank(message = "이름을 입력해주세요")
 	String member_name;
+	
+	 @NotBlank(message = "전화번호를 입력해주세요")
+	 @Pattern(regexp = "^(010|011)-\\d{3,4}-\\d{4}$", message = "전화번호를 확인해주세요")
 	String member_phone;
 	LocalDate member_date;
+	
+	@NotBlank(message = "주소를 입력해주세요")
 	String member_address;
 	boolean member_manager;
+	
 	public MemberDTO() {
-		// TODO Auto-generated constructor stub
 	}
 	public MemberDTO(int member_idx, String member_id, String member_pw, String member_name, String member_phone,
 			LocalDate member_date, String member_address, boolean member_manager) {

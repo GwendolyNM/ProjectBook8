@@ -24,7 +24,10 @@
 					$("#idCheck").text(data);
 					if (data == "사용불가") {
 						alert(data)
+					} else{
+						alert(data)
 					}
+				
 
 				},
 				error : function(xhr, status, error) {
@@ -37,11 +40,11 @@
 		$("#member_pw, #member_pw2").on("keyup", function() {
 			var member_pw = $("#member_pw").val().trim();
 			var member_pw2 = $("#member_pw2").val().trim();
-			var mesg = "";
+			var mesg;
 
 			if (member_pw === "" && member_pw2 === "") {
 				// 두 입력 필드가 모두 비어 있으면 메시지 지움
-				mesg = "";
+				mesg = "비밀번호를 입력해주세요";
 			} else if (member_pw === member_pw2) {
 				mesg = "비번 일치";
 			} else {
