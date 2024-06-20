@@ -21,9 +21,6 @@
 							id="idDupulicatedcheck">아이디중복</button>
 					</div>
 					<div>
-						<span id="idcheck"></span>
-					</div>
-					<div>
 						<label for="member_pw">비밀번호</label>
 						<form:input name="member_pw" class="member_pw" id="member_pw"
 							type="password" path="member_pw" />

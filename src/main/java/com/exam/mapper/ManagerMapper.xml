@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.exam.mapper.ManagerMapper">
+ 
+     <!-- 관리자 : 회원관리 -->
+     <select id="memberList" parameterType="string" resultType="MemberDTO">
+     
+				    select member_idx, 
+				      	   member_id, 
+				      	   left(member_pw, 8) as member_pw, 
+				      	   member_name, 
+				      	   member_phone, 
+				      	   member_date, 
+				      	   member_address 
+				      from member
+     </select>
+     
+     
+     <!-- 관리자 : 회원저장 -->
+     <select id="saveMember" parameterType="MemberDTO">
+     
+			   insert into member (
+				           member_id, 
+				           member_pw, 
+				           member_name, 
+				           member_phone,
+				           member_address
+			   ) values (  #{member_id}, 
+				           #{member_pw}, 
+				           #{member_name}, 
+				           #{member_phone}, 
+				           #{member_address})
+     </select>
+     
+     <!-- 관리자 : 회원삭제 -->
+     <select id="deleteMember" parameterType="int">
+     
+			   delete from member  
+			   		 where member_idx= #{member_idx}
+     </select>
+     
+     <!-- 관리자 : 회원수정 -->
+     <update id="editMember" parameterType="MemberDTO">
+     				
+     				update member (
+				       set member_id = #{member_id}, 
+				           member_pw = #{member_pw},
+				           member_name = #{member_name},
+				           member_phone= #{member_phone},
+				           member_address = #{member_address});  
+				     where member_idx=#{member_idx}   	
+     </update>
+     
+     <!-- 관리자 : 회원수정 아이디 중복 검사 -->
+     <select id="idCheck2" parameterType="string" resultType="MemberDTO">
+      
+					 select *
+					   from member
+					  where member_id=#{member_id}
+	 </select>
+	 
+	 <!-- 관리자 : 특정회원 조회 -->
+</mapper>
+
+
