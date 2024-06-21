@@ -28,20 +28,22 @@
 						<td>${dto.member_phone}</td>
 						<td>${dto.member_date}</td>
 						<td>${dto.member_address}</td>
-						<form:form method="post" modelAttribute="memberDTO" action="editMember">
 						<td width=60px>
+						<form:form method="post" name="memberDTO" action="/app/editMember">
+						<input type="hidden" name="member_idx" value="${dto.member_idx}">
 							<div class="membercard_button">
 								<button type="submit" class="btn btn-secondary btn-sm btn-dark">수정</button>
 							</div>
-						</td>
 						</form:form>
-						<form:form method="post" modelAttribute="memberDTO" action="deleteMember">
+						</td>
 						<td width=60px>
+						<form:form method="post" name="deleteMemberDTO" action="/app/deleteMember">
+						<input type="hidden" name="member_idx" value="${dto.member_idx}">
 							<div class="membercard_button">
 								<button type="submit" class="btn btn-secondary btn-sm btn-dark">삭제</button>
 							</div>
-						</td>
 						</form:form>
+						</td>
 						</tr>
 				</c:forEach>
 			</table>

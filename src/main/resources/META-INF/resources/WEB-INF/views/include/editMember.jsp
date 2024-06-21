@@ -9,9 +9,10 @@
 
 <div class="TodoApp">
 	<div class="container">
-		<div class="Login">
-			<h1 class="loginhead">회원가입화면</h1>
-			<div class="signUpForm">
+	
+		<div class="editMember">
+			<h1 class="editMemberhead">회원관리</h1>
+			<div class="editMemberForm">
 				<form:form method="post" modelAttribute="memberDTO" action="signup">
 					<div>
 						<label for="member_id">아이디</label>

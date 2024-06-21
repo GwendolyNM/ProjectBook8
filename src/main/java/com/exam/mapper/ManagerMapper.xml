@@ -5,7 +5,7 @@
   
 <mapper namespace="com.exam.mapper.ManagerMapper">
  
-     <!-- 관리자 : 회원관리 -->
+     <!-- 관리자 : 회원리스트 불러오기 -->
      <select id="memberList" parameterType="string" resultType="MemberDTO">
      
 				    select member_idx, 
@@ -16,6 +16,21 @@
 				      	   member_date, 
 				      	   member_address 
 				      from member
+     </select>
+     
+     
+     <!-- 관리자 : 특정회원 불러오기 -->
+     <select id="getMember" parameterType="int" resultType="MemberDTO">
+     
+				    select member_idx, 
+				      	   member_id, 
+				      	   left(member_pw, 8) as member_pw, 
+				      	   member_name, 
+				      	   member_phone, 
+				      	   member_date, 
+				      	   member_address 
+				      from member
+				     where member_idx=#{member_idx}
      </select>
      
      

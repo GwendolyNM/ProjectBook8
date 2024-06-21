@@ -21,4 +21,9 @@ public class ManagerServiceImpl implements ManagerService{
 		return managerMapper.memberList();
 	}
 
+	@Override
+	public List<MemberDTO> getMember(int member_idx) {
+		return managerMapper.getMember(member_idx);
+	}
+
 }
