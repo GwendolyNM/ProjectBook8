@@ -22,12 +22,9 @@ public class MemberDTO {
 	@NotBlank(message = "이름을 입력해주세요")
 	String member_name;
 	
-	 @NotBlank(message = "전화번호를 입력해주세요")
-	 @Pattern(regexp = "^(010|011)-\\d{3,4}-\\d{4}$", message = "전화번호를 확인해주세요")
 	String member_phone;
 	LocalDate member_date;
 	
-	@NotBlank(message = "주소를 입력해주세요")
 	String member_address;
 	boolean member_manager;
 	

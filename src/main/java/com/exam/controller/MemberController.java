@@ -1,6 +1,8 @@
 package com.exam.controller;
 
 
+import java.security.Principal;
+
 import javax.validation.Valid;
 
 import org.slf4j.Logger;
@@ -49,7 +51,9 @@ public class MemberController {
             @RequestParam("addressJibun") String addressJibun,
             Model m,
 			@Valid MemberDTO member, BindingResult result) {
-
+		
+		
+		
 		String memberPhone = phone1+"-"+phone2+"-"+phone3;
 
 		member.setMember_phone(memberPhone);
@@ -70,7 +74,7 @@ public class MemberController {
 			return "redirect:/home?signupSuccess=true";
 		}else {
 			m.addAttribute("message", "회원가입 실패");
-		return "memberForm:";
+		return "memberForm";
 		}
 	}
 	
@@ -92,10 +96,14 @@ public class MemberController {
 	}
 	
 	@GetMapping(value={"/mypage"})
-	public String mypage() {
+	public String mypage(Model m, Principal p) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		MemberDTO xxx = (MemberDTO)auth.getPrincipal();
-		return "redirect:home";
+		MemberDTO dto = (MemberDTO)auth.getPrincipal();
+		
+		String memberid = p.getName();
+		MemberDTO member = memberService.findById(memberid);
+		m.addAttribute("member", member);
+		return "mypage";
 	}
 	
 	
