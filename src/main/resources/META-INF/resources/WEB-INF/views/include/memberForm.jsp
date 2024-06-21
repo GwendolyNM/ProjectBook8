@@ -92,23 +92,25 @@
 					</div>
 
 					<div>
-						<label for="member_phone">전화번호</label> <select name="phone1"
+						<label for="member_phone1">전화번호</label> <select name="member_phone1"
 							class="form-control" id="phone1">
 							<option value="010">010</option>
 							<option value="011">011</option>
 						</select>
 						<div>
-							<input type="text" name="phone2" id="phone2" class="form-control"
-								placeholder="1234" maxlength="4" /> <input type="text"
-								name="phone3" id="phone3" class="form-control"
+							<form:input type="text" path="member_phone2"  name="member_phone2" id="member_phone2" class="form-control"
+								placeholder="1234" maxlength="4" /> 
+								<form:errors path="member_phone2" cssClass="text-warning" />
+								
+								<form:input type="text" path="member_phone3"
+								name="member_phone3" id="member_phone3" class="form-control"
 								placeholder="1234" maxlength="4" />
-							<form:errors path="member_phone" cssClass="text-warning" />
+							<form:errors path="member_phone3" cssClass="text-warning" />
 						</div>
 					</div>
 
 					<div>
-						<label id="member_address" for="member_address">상세주소</label> <input
-							type="text" name="addressDetail" />
+						
 
 						<div class="row mb-3">
 							<div class="col-auto">
@@ -126,21 +128,25 @@
 								<label for="sample4_roadAddress" class="visually-hidden"
 									name="addr1">도로명주소</label> 
 									<input type="text"
-									name="addressRoad" class="form-control" id="sample4_roadAddress"
+									name="member_addressRoad" class="form-control" id="sample4_roadAddress"
 									placeholder="도로명주소">
 							</div>
 							<div class="col-sm-5">
 								<label for="sample4_jibunAddress" class="visually-hidden"
 									name="addr2">지번주소</label> 
 									<input type="text"
-									name="addressJibun" class="form-control" id="sample4_jibunAddress"
+									name="member_addressJibun" class="form-control" id="sample4_jibunAddress"
 									placeholder="지번주소"> <span id="guide"
 									style="color: #999"></span>
+							</div>
+							<div>
+							<label id="member_address" for="member_address">상세주소</label> <input
+							type="text" name="member_addressDetail" />
 							</div>
 						</div>
 					</div>
 					<div>
-						<button name="login" class="btn btn-success m-5">signup</button>
+						<button name="login" class="btn btn-success m-5">submit</button>
 					</div>
 				</form:form>
 			</div>
