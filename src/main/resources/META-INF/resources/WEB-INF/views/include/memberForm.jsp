@@ -62,7 +62,7 @@
 		<div class="Login">
 			<h1 class="loginhead">회원가입화면</h1>
 			<div class="signUpForm">
-				<form:form method="post" modelAttribute="memberDTO" action="signup">
+				<form:form method="post" modelAttribute="memberDTO">
 					<div>
 						<label for="member_id">아이디</label>
 						<form:input type="text" path="member_id" />

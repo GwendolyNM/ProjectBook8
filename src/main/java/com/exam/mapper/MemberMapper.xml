@@ -30,12 +30,10 @@
     
 				    select member_idx, 
 				      	   member_id, 
-				      	   member_pw, 
 				      	   member_name, 
 				      	   member_phone, 
 				      	   member_date, 
 				      	   member_address, 
-				      	   member_manager
 				      from member
 				     where member_id= #{member_id}
 	</select>
