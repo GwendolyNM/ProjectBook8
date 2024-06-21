@@ -26,4 +26,10 @@ public class ManagerServiceImpl implements ManagerService{
 		return managerMapper.getMember(member_idx);
 	}
 
+	@Override
+	public void editMember(MemberDTO memberDTO) {}
+
+	@Override
+	public void deleteMember(int member_idx) {}
+
 }

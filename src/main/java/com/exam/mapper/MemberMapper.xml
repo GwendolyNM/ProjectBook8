@@ -52,21 +52,22 @@
      </select>
      
      
-     <select id="deleteMember" parameterType="string">
+     <select id="deleteMember" parameterType="int">
      
 			   delete from member  
-			   		 where member_id= #{member_id}
+			   		 where member_idx= #{member_idx}
      </select>
      
      
      <update id="editMember" parameterType="MemberDTO">
      				
-     				update member (
+     				update member
 				       set member_id = #{member_id}, 
 				           member_pw = #{member_pw},
 				           member_name = #{member_name},
 				           member_phone= #{member_phone},
-				           member_address = #{member_address});     	
+				           member_address = #{member_address};  
+				     where member_idx=#{member_idx}   	
      </update>
 
      
