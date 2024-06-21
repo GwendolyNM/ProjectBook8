@@ -97,15 +97,19 @@ public class MemberController {
 	
 	@GetMapping(value={"/mypage"})
 	public String mypage(Model m, Principal p) {
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		MemberDTO dto = (MemberDTO)auth.getPrincipal();
+//		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+//		MemberDTO dto = (MemberDTO)auth.getPrincipal();
+		if(p == null) {
+			return "redirect:/login";
+		}
+
 		String memberid = p.getName();
 		logger.info("Logged in user ID: {}", memberid);
 		MemberDTO member = memberService.findById(memberid);
-        logger.info("Member ID: {}", member.getMember_id());
-        logger.info("Member Phone: {}", member.getMember_phone());
-        logger.info("Member Name: {}", member.getMember_name());
-        logger.info("Member Address: {}", member.getMember_address());
+//        logger.info("Member ID: {}", member.getMember_id());
+//        logger.info("Member Phone: {}", member.getMember_phone());
+//        logger.info("Member Name: {}", member.getMember_name());
+//        logger.info("Member Address: {}", member.getMember_address());
 
 		
 		m.addAttribute("member", member);
