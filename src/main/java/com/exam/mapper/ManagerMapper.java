@@ -9,6 +9,7 @@ import com.exam.dto.MemberDTO;
 @Mapper
 public interface ManagerMapper {
 	public List<MemberDTO> memberList();
+	public List<MemberDTO> getMember(int member_idx);
 	public List<MemberDTO> editMember();
 
 }
