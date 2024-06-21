@@ -57,10 +57,7 @@
 				           member_addressJibun,
 				           member_addressDetail
 				      from member
-				     where member_id= #{member_id}
-	</select>
-    
-    
+
 </mapper>
 
 

@@ -34,38 +34,22 @@
      </select>
      
      
-     <!-- 관리자 : 회원저장 -->
-     <select id="saveMember" parameterType="MemberDTO">
-     
-			   insert into member (
-				           member_id, 
-				           member_pw, 
-				           member_name, 
-				           member_phone,
-				           member_address
-			   ) values (  #{member_id}, 
-				           #{member_pw}, 
-				           #{member_name}, 
-				           #{member_phone}, 
-				           #{member_address})
-     </select>
-     
      <!-- 관리자 : 회원삭제 -->
-     <select id="deleteMember" parameterType="int">
+     <delete id="deleteMember" parameterType="int">
      
 			   delete from member  
 			   		 where member_idx= #{member_idx}
-     </select>
+     </delete>
      
      <!-- 관리자 : 회원수정 -->
      <update id="editMember" parameterType="MemberDTO">
      				
-     				update member (
+     				update member
 				       set member_id = #{member_id}, 
 				           member_pw = #{member_pw},
 				           member_name = #{member_name},
 				           member_phone= #{member_phone},
-				           member_address = #{member_address});  
+				           member_address = #{member_address};  
 				     where member_idx=#{member_idx}   	
      </update>
      
