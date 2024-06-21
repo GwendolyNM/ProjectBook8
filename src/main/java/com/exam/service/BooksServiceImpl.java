@@ -32,6 +32,11 @@ public class BooksServiceImpl implements BooksService{
 		return booksMapper.rentBook(rentDTO);
 	}
 
+	@Override
+	public List<RentDTO> myBooksList(String keyword) {
+		return booksMapper.myBooksList(keyword);
+	}
+
 		
 
 }

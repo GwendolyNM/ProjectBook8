@@ -1,7 +1,5 @@
 package com.exam.service;
 
-import java.util.List;
-
 import org.springframework.stereotype.Service;
 
 import com.exam.dto.MemberDTO;
@@ -27,19 +25,6 @@ public class MemberServiceImpl
 		return memberMapper.findById(member_id);
 	}
 
-	@Override
-	public List<MemberDTO> memberList() {
-		return memberMapper.memberList();
-	}
-
-
-
-	public List<MemberDTO> allMembers() {
-		return memberMapper.memberList();
-	}
-
-	@Override
-	public void editMember(MemberDTO memberDTO) {}
 
 	@Override
 	public int idCheck(String member_id) {

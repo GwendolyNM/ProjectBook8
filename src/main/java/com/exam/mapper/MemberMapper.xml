@@ -16,61 +16,48 @@
 			   insert into member (
 				           member_id, 
 				           member_pw, 
-				           member_phone,
+				           member_phone1,
+				           member_phone2,
+				           member_phone3,
 				           member_name, 
-				           member_address
+				           member_addressRoad,
+				           member_addressJibun,
+				           member_addressDetail
 			   ) values (  #{member_id}, 
 				           #{member_pw}, 
-				           #{member_phone}, 
+				           #{member_phone1}, 
+				           #{member_phone2}, 
+				           #{member_phone3}, 
 				           #{member_name}, 
-				           #{member_address})
+				           #{member_addressRoad},
+				           #{member_addressJibun},
+				           #{member_addressDetail})
 	</insert>
-
+	<!-- 로그인 기능 -->
     <select id="findById" parameterType="string" resultType="MemberDTO">
+    
+				    select 
+				      	   member_id, 
+				      	   member_pw
+				      from member
+				     where member_id= #{member_id}
+	</select>
+
+    <select id="findMypage" parameterType="string" resultType="MemberDTO">
     
 				    select member_idx, 
 				      	   member_id, 
 				      	   member_pw,
 				      	   member_name, 
-				      	   member_phone, 
+				      	   member_phone1,
+				      	   member_phone2,
+				      	   member_phone3, 
 				      	   member_date, 
-				      	   member_address 
+				      	   member_addressRoad,
+				           member_addressJibun,
+				           member_addressDetail
 				      from member
-				     where member_id= #{member_id}
-	</select>
-    
-     <select id="memberList" parameterType="string" resultType="MemberDTO">
-     
-				    select member_idx, 
-				      	   member_id, 
-				      	   left(member_pw, 8) as member_pw, 
-				      	   member_name, 
-				      	   member_phone, 
-				      	   member_date, 
-				      	   member_address 
-				      from member
-     </select>
-     
-     
-     <select id="deleteMember" parameterType="int">
-     
-			   delete from member  
-			   		 where member_idx= #{member_idx}
-     </select>
-     
-     
-     <update id="editMember" parameterType="MemberDTO">
-     				
-     				update member
-				       set member_id = #{member_id}, 
-				           member_pw = #{member_pw},
-				           member_name = #{member_name},
-				           member_phone= #{member_phone},
-				           member_address = #{member_address};  
-				     where member_idx=#{member_idx}   	
-     </update>
 
-     
 </mapper>
 
 
