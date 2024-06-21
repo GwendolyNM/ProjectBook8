@@ -8,6 +8,7 @@ import javax.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -95,28 +96,16 @@ public class MemberController {
 		
 	}
 	
+	
 	@GetMapping(value={"/mypage"})
-	public String mypage(Model m, Principal p) {
-//		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-//		MemberDTO dto = (MemberDTO)auth.getPrincipal();
-		if(p == null) {
-			return "redirect:/login";
-		}
-
-		String memberid = p.getName();
-		logger.info("Logged in user ID: {}", memberid);
-		MemberDTO member = memberService.findById(memberid);
-//        logger.info("Member ID: {}", member.getMember_id());
-//        logger.info("Member Phone: {}", member.getMember_phone());
-//        logger.info("Member Name: {}", member.getMember_name());
-//        logger.info("Member Address: {}", member.getMember_address());
-
-		
+	public String mypage(MemberDTO member, Model m) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		MemberDTO dto = (MemberDTO)auth.getPrincipal();
 		m.addAttribute("member", member);
+		String userid = dto.getMember_id();
+		
 		return "mypage";
 	}
-	
-	
 }
 
 

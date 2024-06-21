@@ -1,15 +1,17 @@
 package com.exam.dto;
 
 import java.time.LocalDate;
+import java.util.Collection;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import org.apache.ibatis.type.Alias;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 @Alias("MemberDTO")
-public class MemberDTO {
+public class MemberDTO{
 	int member_idx;
 	
 	@NotBlank(message = "id를 입력해주세요")
@@ -96,6 +98,7 @@ public class MemberDTO {
 				+ ", member_name=" + member_name + ", member_phone=" + member_phone + ", member_date=" + member_date
 				+ ", member_address=" + member_address + ", member_manager=" + member_manager + "]";
 	}
+
 
 	
 	
