@@ -42,6 +42,18 @@
 						<a class="nav-link text-dark" href="mypage">mypage</a>
 					</li>
 				</sec:authorize>
+				<sec:authorize access="isAuthenticated()">
+					<li class="nav-item">
+						<i class="fas fa-user fa-2xs"></i> 
+						<a class="nav-link text-dark" href="memberList">members</a>
+					</li>
+				</sec:authorize>
+				<sec:authorize access="isAuthenticated()">
+					<li class="nav-item">
+						<i class="fas fa-user fa-2xs"></i> 
+						<a class="nav-link text-dark" href="addBook">books</a>
+					</li>
+				</sec:authorize>
 			</ul>
 		</nav>
 	</div>

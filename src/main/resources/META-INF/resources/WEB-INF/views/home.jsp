@@ -7,7 +7,7 @@
 <link rel="stylesheet" type="text/css" href="/app/css/common.css">
 <link rel="stylesheet" type="text/css" href="/app/css/booksList.css">
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Welcome to Bookfinity</title>
 </head>
 <body>
 	<div class="App">
