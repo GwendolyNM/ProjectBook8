@@ -1,14 +1,11 @@
 package com.exam.controller;
 
 
-import java.security.Principal;
-
 import javax.validation.Valid;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -43,25 +40,9 @@ public class MemberController {
 	}
 	
 	@PostMapping(value={"/signup"})
-	public String showSignUpSuccessPage(
-            @RequestParam("phone1") String phone1,
-            @RequestParam("phone2") String phone2,
-            @RequestParam("phone3") String phone3,
-            @RequestParam("addressDetail") String addressDetail,
-            @RequestParam("addressRoad") String addressRoad,
-            @RequestParam("addressJibun") String addressJibun,
-            Model m,
+	public String showSignUpSuccessPag(Model m,
 			@Valid MemberDTO member, BindingResult result) {
 		
-		
-		
-		String memberPhone = phone1+"-"+phone2+"-"+phone3;
-
-		member.setMember_phone(memberPhone);
-       
-        String memberAddress =   addressRoad +" "+ addressJibun +" "+ addressDetail;
-        
-        member.setMember_address(memberAddress);
 		if(result.hasErrors()) {
 			return "memberForm";
 		}
@@ -98,11 +79,11 @@ public class MemberController {
 	
 	
 	@GetMapping(value={"/mypage"})
-	public String mypage(MemberDTO member, Model m) {
+	public String mypage(Model m) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		MemberDTO dto = (MemberDTO)auth.getPrincipal();
-		m.addAttribute("member", member);
-		String userid = dto.getMember_id();
+		m.addAttribute("member", dto);
+		
 		
 		return "mypage";
 	}
