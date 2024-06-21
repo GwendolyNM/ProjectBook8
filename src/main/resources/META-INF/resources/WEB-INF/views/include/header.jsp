@@ -50,8 +50,14 @@
 				</sec:authorize>
 				<sec:authorize access="isAuthenticated()">
 					<li class="nav-item">
-						<i class="fas fa-user fa-2xs"></i> 
+						<i class="fas fa-book fa-3xs"></i> 
 						<a class="nav-link text-dark" href="addBook">books</a>
+					</li>
+				</sec:authorize>
+				<sec:authorize access="isAuthenticated()">
+					<li class="nav-item">
+						<i class="fas fa-book fa-3xs"></i> 
+						<a class="nav-link text-dark" href="myBooks">MyBooks</a>
 					</li>
 				</sec:authorize>
 			</ul>
