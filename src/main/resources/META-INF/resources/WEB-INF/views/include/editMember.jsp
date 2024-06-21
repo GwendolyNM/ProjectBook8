@@ -6,58 +6,43 @@
 
 <script src="webjars/bootstrap/5.1.3/js/bootstrap.min.js"></script>
 <script src="webjars/jquery/3.6.0/jquery.min.js"></script>
-
+<link rel="stylesheet" type="text/css" href="/app/css/common.css">
 <div class="TodoApp">
 	<div class="container">
-	
+
 		<div class="editMember">
 			<h1 class="editMemberhead">회원관리</h1>
-			<div class="editMemberForm">
-				<form:form method="post" modelAttribute="memberDTO" action="signup">
-					<div>
-						<label for="member_id">아이디</label>
-						<form:input type="text" path="member_id" />
-						<form:errors path="member_id" cssClass="text-warning" />
-						<button type="button" class="btn btn-primary mb-3"
-							id="idDupulicatedcheck">아이디중복</button>
-					</div>
-					<div>
-						<label for="member_pw">비밀번호</label>
-						<form:input name="member_pw" class="member_pw" id="member_pw"
-							type="password" path="member_pw" />
-						<form:errors path="member_pw" cssClass="text-warning" />
-					</div>
-					<div>
-						<label for="member_pw">비밀번호 확인</label> <input type="password"
-							class="member_pw2" name="member_pw2" id="member_pw2" />
-					</div>
-
-					<span id="pwdcheck" class="fs-5"></span>
-
-
-					<div>
-						<label for="member_name">이름</label>
-						<form:input type="text" path="member_name" />
-						<form:errors path="member_name" cssClass="text-warning" />
-					</div>
-
-					<div>
-						<label for="member_phone">전화번호</label>
-						<form:input type="text" path="member_phone" />
-						<form:errors path="member_phone" cssClass="text-warning" />
-
-					</div>
-
-					<div>
-						<label for="member_address">주소</label>
-						<form:input type="text" path="member_address" />
-						<form:errors path="member_address" cssClass="text-warning" />
-					</div>
-					<div>
-						<button name="edit" class="btn btn-success m-5">수정</button>
-					</div>
+			<c:forEach var="dto" items="${getMember}">
+				<tr>
+					<td> 회원번호 </td><td><input type="text" value="${dto.member_idx}" readonly /></td>
+					<br>
+					<td> 아이디 </td><td><input type="text" value="${dto.member_id}" readonly /></td>
+					<br>
+					<td> 비밀번호 </td><td><input type="text" value="${dto.member_pw}" readonly /></td>
+					<br>
+					<td> 회원이름 </td><td><input type="text"	value="${dto.member_name}" /></td>
+					<br>
+					<td> 연락처 </td><td><input type="text" value="${dto.member_phone}"></td>
+					<br>
+					<td> 가입일자 </td><td><input type="text" value="${dto.member_date}" /></td>
+					<br>
+					<td> 회원주소 </td><td><input type="text" value="${dto.member_address}" /></td>
+					<br>
+				</tr>
+			</c:forEach>
+			<br>
+			<div class="membercard_button">
+				<form:form method="post" name="EditMemberSave"
+					action="/app/editMember" align="center">
+					<input type="hidden" name="member_idx" value="${dto.member_idx}">
+					<button type="submit" class="btn btn-secondary btn-sm btn-dark">수정</button>
+				</form:form>
+				<form:form method="post" name="cancelEditMember"
+					action="/app/memberlist" align="center">
+					<button type="submit" class="btn btn-secondary btn-sm btn-dark">취소</button>
 				</form:form>
 			</div>
+
 		</div>
 	</div>
 </div>
