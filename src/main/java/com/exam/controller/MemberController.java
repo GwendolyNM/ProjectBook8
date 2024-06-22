@@ -90,7 +90,7 @@ public class MemberController {
 		m.addAttribute("member",mypageInfo);
 		return "mypage";
 	}
-	//ss
+
 	@PostMapping(value= {"/mypage"})
 	public String Redirectmypage(Model m) {
 		
