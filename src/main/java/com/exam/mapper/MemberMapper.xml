@@ -37,7 +37,6 @@
     <select id="findById" parameterType="string" resultType="MemberDTO">
     
 				    select 
-				    	   member_idx,
 				      	   member_id, 
 				      	   member_pw
 				      from member
@@ -45,19 +44,18 @@
 	</select>
 
     <select id="findMypage" parameterType="string" resultType="MemberDTO">
-    
-				    select member_idx, 
-				      	   member_id, 
-				      	   member_pw,
+    <!-- test -->
+				    select 
+				    	   member_id,
 				      	   member_name, 
 				      	   member_phone1,
 				      	   member_phone2,
 				      	   member_phone3, 
-				      	   member_date, 
 				      	   member_addressRoad,
 				           member_addressJibun,
 				           member_addressDetail
 				      from member
+				      where member_id= #{member_id}
 	</select>
 </mapper>
 

@@ -9,6 +9,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -78,14 +79,23 @@ public class MemberController {
 	}
 	
 	
-	@GetMapping(value={"/mypage"})
-	public String mypage(Model m) {
+	@GetMapping(value={"/mypage"}) 
+	public String showmypage(ModelMap m) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		MemberDTO dto = (MemberDTO)auth.getPrincipal();
-		m.addAttribute("member", dto);
-		
-		
+		System.out.println("222222");
+		MemberDTO mypageInfo = memberService.findMypage(dto.getMember_id());
+		System.out.println("111111");
+		logger.info("mypageinfo:{}", dto.getMember_id());
+		m.addAttribute("member",mypageInfo);
 		return "mypage";
+	}
+	//ss
+	@PostMapping(value= {"/mypage"})
+	public String Redirectmypage(Model m) {
+		
+		return "redirect:mypage";
+		//
 	}
 }
 

@@ -30,6 +30,11 @@ public class MemberServiceImpl
 	public int idCheck(String member_id) {
 		return  memberMapper.idCheck(member_id);
 	}
+//s.....
+	@Override
+	public MemberDTO findMypage(String member_id) {
+		return memberMapper.findById(member_id);
+	}
 
 
 
