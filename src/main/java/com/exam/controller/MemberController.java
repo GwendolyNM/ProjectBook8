@@ -86,6 +86,7 @@ public class MemberController {
 		System.out.println("222222");
 		MemberDTO mypageInfo = memberService.findMypage(dto.getMember_id());
 		System.out.println("111111");
+		logger.info("mypageinfo:{}", mypageInfo);
 		logger.info("mypageinfo:{}", dto.getMember_id());
 		m.addAttribute("member",mypageInfo);
 		return "mypage";

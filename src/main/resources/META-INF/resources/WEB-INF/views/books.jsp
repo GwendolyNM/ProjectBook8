@@ -10,14 +10,14 @@
 <link rel="stylesheet" type="text/css" href="/app/css/common.css">
 </head>
 <body>
-      <div class="App">
-	    <!-- header 보여주기 -->
-	 	<jsp:include page="include/header.jsp" />
-	    <!-- content 보여주기 -->
-	 	<jsp:include page="include/booksList.jsp" />
-	 	<!-- footer 보여주기 -->
+	<div class="App">
+		<!-- header 보여주기 -->
+		<jsp:include page="include/header.jsp" />
+		<!-- content 보여주기 -->
+		<jsp:include page="include/booksList.jsp" />
+		<!-- footer 보여주기 -->
 		<jsp:include page="include/footer.jsp" />
-	   </div>
+	</div>
 	   <script src="https://kit.fontawesome.com/383b0a4783.js" crossorigin="anonymous"></script>
 </body>
 </html>
