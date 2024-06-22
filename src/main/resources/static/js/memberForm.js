@@ -27,6 +27,32 @@ $(document).ready(function() {
 
 			});
 		}); //end id 중복 체크
+		
+		//회원가입 시 idcheck
+		$("#signupIdcheck").on("click", function() {
+
+			$.ajax({
+				method : "get",
+				url : "idCheck",
+				dataType : 'text',
+				data : {
+					userid : $("#member_id").val()
+				},
+				success : function(data, status, xhr) {
+					console.log("data:", data);
+					console.log("status:", status);
+					$("#idCheck").text(data);
+					if (data == "사용불가") {
+						alert(data)
+					}
+				},
+				error : function(xhr, status, error) {
+					console.log("error:", error);
+				}
+
+			});
+		}); //end id 중복 체크
+
 
 		$("#member_pw, #member_pw2").on("keyup", function() {
 			var member_pw = $("#member_pw").val().trim();

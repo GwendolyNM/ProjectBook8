@@ -18,11 +18,12 @@ public class MemberDTO{
 	String member_id;
 	
 	@NotBlank(message = "비밀번호를 입력해주세요")
-	@Size(min = 1, message = "비밀번호는 최소 8자 이상이어야 합니다.")
+	@Size(min = 8, message = "비밀번호는 최소 8자 이상이어야 합니다.")
 	String member_pw;
 	
 	@NotBlank(message = "이름을 입력해주세요")
 	String member_name;
+	
 	
 	String member_phone1;
 	String member_phone2;

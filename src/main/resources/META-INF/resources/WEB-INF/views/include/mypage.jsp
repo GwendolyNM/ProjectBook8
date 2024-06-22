@@ -12,11 +12,11 @@
 	<div class="container">
 		<form class="login-form flex-c" action="updateMypage" method="post">
 			<div class="input-box flex-sb">
-				<input type="text" class="form-control" path="member_id" value="${member.member_id}" readonly/>
+				<input name="member_id" type="text" class="form-control" path="member_id" value="${member.member_id}" readonly/>
 				<errors path="member_id" cssClass="text-warning" />
 			</div>
 			<div class="input-box">
-				<input type="text" class="form-control" path="member_name" placeholder="이름" value="${member.member_name}"/>
+				<input name="member_name" type="text" class="form-control" path="member_name" placeholder="이름" value="${member.member_name}"/>
 				<errors path="member_name" cssClass="text-warning" />
 			</div>
 			<div class="input-box flex-sb">

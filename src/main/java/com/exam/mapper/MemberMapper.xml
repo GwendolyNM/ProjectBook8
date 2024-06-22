@@ -36,7 +36,7 @@
 	<!-- 로그인 기능 -->
     <select id="findById" parameterType="string" resultType="MemberDTO">
     
-				    select 
+				    select member_idx,
 				      	   member_id, 
 				      	   member_pw
 				      from member
@@ -68,7 +68,7 @@
 				           member_addressRoad = #{member_addressRoad},  
 				           member_addressJibun = #{member_addressJibun},  
 				           member_addressDetail = #{member_addressDetail}  
-				     where member_idx=#{member_idx} 	
+				     where member_id=#{member_id} 	
      </update>
 </mapper>
 
