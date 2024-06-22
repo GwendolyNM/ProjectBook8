@@ -36,11 +36,12 @@
 			<div class="input-box flex-c">
 				<label for="sample4_postcode" class="visually-hidden" name="addressPost">post</label> 
 				<input type="hidden" name="post" class="form-control" id="sample4_postcode" placeholder="우편번호" readonly>
-				<label for="sample4_roadAddress" class="visually-hidden" name="addr1" value="${member.member_addressRoad}">도로명주소</label> 
-				<input type="text" name="member_addressRoad" class="form-control" id="sample4_roadAddress" placeholder="도로명주소" readonly>
+				<label for="sample4_roadAddress" class="visually-hidden" name="addr1">도로명주소</label> 
+				<input type="text" name="member_addressRoad" class="form-control" id="sample4_roadAddress" placeholder="도로명주소" value="${member.member_addressRoad}" readonly>
 				<button type="button" class="btn btn-dark btn-normal" onclick="sample4_execDaumPostcode()">주소찾기</button>
 			</div>
 			<div class="input-box">
+				<input type="text" value="${member.member_addressJibun}" name="member_addressJibun" class="form-control" id="sample4_jibunAddress" placeholder="지번주소">
 				<input type="text" class="form-control" name="member_addressDetail" placeholder="상세주소" value="${member.member_addressDetail}"/>
 			</div>
 			<div class="input-box">

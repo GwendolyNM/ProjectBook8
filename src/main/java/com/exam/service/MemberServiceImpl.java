@@ -33,7 +33,7 @@ public class MemberServiceImpl
 //s.....
 	@Override
 	public MemberDTO findMypage(String member_id) {
-		return memberMapper.findById(member_id);
+		return memberMapper.findMypage(member_id);
 	}
 
 
