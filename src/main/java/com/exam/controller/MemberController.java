@@ -112,10 +112,12 @@ public class MemberController {
 		logger.info("logger member_addressJibun 수정 적용 전{}", member_addressJibun);
 		logger.info("logger member_addressDetail 수정 적용 전{}", member_addressDetail);
 		
-		if(result.hasErrors()) {
-			logger.info("logger 입력오류{}", "입력값 확인하세요!");
-			return "redirect:mypage";
-		}
+		
+		
+//		if(result.hasErrors()) {
+//			logger.info("logger 입력오류{}", "입력값 확인하세요!");
+//			return "redirect:mypage";
+//		}
 		
 		getMember.setMember_name(member_id);
 		getMember.setMember_name(member_name);

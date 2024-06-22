@@ -56,7 +56,7 @@
 				<input type="text" class="form-control" name="member_addressDetail" placeholder="상세주소"/>
 			</div>
 			<div class="input-box">
-				<button name="login" class="btn btn-dark btn-submit">회원가입</button>
+				<button name="login" id="signupIdcheck" class="btn btn-dark btn-submit">회원가입</button>
 			</div>
 		</form:form>
 	</div>
