@@ -5,7 +5,7 @@
 <head>
 <link href="webjars/bootstrap/5.1.3/css/bootstrap.min.css"  rel="stylesheet" >
 <link rel="stylesheet" type="text/css" href="/app/css/common.css">
-<link rel="stylesheet" type="text/css" href="/app/css/booksList.css">
+<link rel="stylesheet" type="text/css" href="/app/css/home.css">
 <meta charset="UTF-8">
 <title>Welcome to Bookfinity</title>
 </head>

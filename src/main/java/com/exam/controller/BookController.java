@@ -39,6 +39,7 @@ public class BookController {
         }
 
         model.addAttribute("booksList", booksList);
+        logger.info("logger:bookList:{}", model);
         return "books";
     }
  	
@@ -61,13 +62,13 @@ public class BookController {
 	    
 	    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		MemberDTO memberDTO = (MemberDTO)auth.getPrincipal();
-		String username = memberDTO.getMember_name();
-		logger.info("logger:Member:{}", username);
+		String userId = memberDTO.getMember_id();
+		logger.info("logger:Member:{}", userId);
 		
 		rentDTO.setBook_idx(bookIdx);
-	    rentDTO.setMember_idx(username);
+	    rentDTO.setMember_id(userId);
+	    logger.info("logger:Member:{}", rentDTO);
 	    booksService.rentBook(rentDTO);
-		logger.info("logger:Member:{}", memberDTO);
 	    return "redirect:books";
 	}
 	

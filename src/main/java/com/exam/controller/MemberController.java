@@ -9,10 +9,12 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -78,14 +80,67 @@ public class MemberController {
 	}
 	
 	
-	@GetMapping(value={"/mypage"})
-	public String mypage(Model m) {
+	@GetMapping(value={"/mypage"}) 
+	public String showmypage(ModelMap m) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		MemberDTO dto = (MemberDTO)auth.getPrincipal();
-		m.addAttribute("member", dto);
-		
-		
+		MemberDTO mypageInfo = memberService.findMypage(dto.getMember_id());
+		logger.info("mypageinfo:{}", mypageInfo);
+		logger.info("mypageinfo:{}", dto.getMember_id());
+		m.addAttribute("member",mypageInfo);
 		return "mypage";
+	}
+
+	@PostMapping(value= {"/updateMypage"})
+	public String updateMypage(@RequestParam("member_id") String member_id,
+			 @RequestParam("member_name") String member_name,
+			 @RequestParam("member_phone1") String member_phone1,
+			 @RequestParam("member_phone2") String member_phone2,
+			 @RequestParam("member_phone3") String member_phone3,
+			 @RequestParam("member_addressRoad") String member_addressRoad,
+			 @RequestParam("member_addressJibun") String member_addressJibun,
+			 @RequestParam("member_addressDetail") String member_addressDetail,
+			 @Valid @ModelAttribute("getMember") MemberDTO getMember,
+			 BindingResult result) {
+		
+		logger.info("logger member_id 수정 적용 전{}", member_id);
+		logger.info("logger member_name 수정 적용 전{}", member_name);
+		logger.info("logger member_phone1 수정 적용 전{}", member_phone1);
+		logger.info("logger member_phone2 수정 적용 전{}", member_phone2);
+		logger.info("logger member_phone3 수정 적용 전{}", member_phone3);
+		logger.info("logger member_addressRoad 수정 적용 전{}", member_addressRoad);
+		logger.info("logger member_addressJibun 수정 적용 전{}", member_addressJibun);
+		logger.info("logger member_addressDetail 수정 적용 전{}", member_addressDetail);
+		
+		
+		
+//		if(result.hasErrors()) {
+//			logger.info("logger 입력오류{}", "입력값 확인하세요!");
+//			return "redirect:mypage";
+//		}
+		
+		getMember.setMember_name(member_id);
+		getMember.setMember_name(member_name);
+		getMember.setMember_phone1(member_phone1);
+		getMember.setMember_phone2(member_phone2);
+		getMember.setMember_phone3(member_phone3);
+		getMember.setMember_addressRoad(member_addressRoad);
+		getMember.setMember_addressJibun(member_addressJibun);
+		getMember.setMember_addressDetail(member_addressDetail);
+		
+		logger.info("logger memberDTO 수정 적용 후{}", getMember);
+
+//		model.getAttribute(member_idx);
+//		(MemberDTO) managerService.getMember(Integer.parseInt(member_idx));
+		
+		
+		memberService.updateMypage(getMember);
+		logger.info("logger: updateMypage DB 변경 {}", getMember);
+
+		// 성공 메시지 표시 + 수정이 완료시 회원목록으로 리다이렉트
+		logger.info("logger: 수정성공 {}", "수정성공!");
+		return "redirect:home";
+		//
 	}
 }
 

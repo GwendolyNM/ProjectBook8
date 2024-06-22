@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
 <div class="booklist-search-box">
 	<form action="/app/books" method="get" class="booklist-search">
 		<input type="text" id="keyword" name="keyword">
@@ -40,13 +42,15 @@
 						<td>${dto.book_genre }</td>
 					</tr>
 				</table>
-				<div class="bookcard_button">
+				<sec:authorize access="isAuthenticated()">
+					<div class="bookcard_button">
 					<form method="post" action="rent">
 						<!-- 숨겨진 필드로 등록번호를 전송 -->
 						<input type="hidden" name="book_idx" value="${dto.book_idx}">
 						<button type="submit" class="btn btn-secondary btn-sm btn-dark fw-bold">대여하기</button>
 					</form>
 				</div>
+				</sec:authorize>
 			</div>
 		</div>
 	</c:forEach>

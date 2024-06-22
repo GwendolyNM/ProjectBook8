@@ -63,7 +63,8 @@ public class ManagerController {
         //editMember.jsp에 getMember키로 모델맵 매핑
         model.addAttribute("getMember", getMember);
     	logger.info("logger: member_idx 현재 회원번호: {}", member_idx);
-    	logger.info("logger: getMember 화면출력 {}", getMember);		
+    	logger.info("logger: getMember 화면출력 {}", getMember);	
+    	logger.info("logger: model 화면출력 {}", model);	
     	
     	
         return "editMember"; 
