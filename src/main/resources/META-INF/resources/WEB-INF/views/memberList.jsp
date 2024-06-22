@@ -8,7 +8,7 @@
 <title>Bookfinity 관리자모드 : 회원관리</title>
 
 <link href="webjars/bootstrap/5.1.3/css/bootstrap.min.css"  rel="stylesheet" >
-<link rel="stylesheet" type="text/css" href="/app/css/member.css">
+<link rel="stylesheet" type="text/css" href="/app/css/memberList.css">
 <link rel="stylesheet" type="text/css" href="/app/css/common.css">
 </head>
 <body>

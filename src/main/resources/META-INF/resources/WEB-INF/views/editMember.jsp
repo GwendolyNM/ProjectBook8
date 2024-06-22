@@ -9,6 +9,7 @@
 
 <link href="webjars/bootstrap/5.1.3/css/bootstrap.min.css"  rel="stylesheet" >
 <link rel="stylesheet" type="text/css" href="/app/css/member.css">
+<link rel="stylesheet" type="text/css" href="/app/css/editMember.css">
 </head>
 <body>
 	<div class="App">

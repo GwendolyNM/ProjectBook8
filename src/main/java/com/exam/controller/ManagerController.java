@@ -41,21 +41,21 @@ public class ManagerController {
 	}
 	
     @GetMapping("/editMember")
-    public String showEditMemberPage(ModelMap model, @RequestParam("member_idx") 
-    						 String member_idx, MemberDTO memberDTO) {
+    public String showEditMemberPage(ModelMap model, @RequestParam("member_idx") int member_idx) {
     	
     	//멤버리스트 생성
     	List<MemberDTO> getMember;
     	
     	//member_idx로 DB 회원 정보 가져온다.
-    	getMember = managerService.getMember(Integer.parseInt(member_idx));
+    	getMember = managerService.getMember(member_idx);
     	logger.info("logger: member_idx 회원번호 가져오기: {}", member_idx);
     	logger.info("logger: getMember 회원정보 가져오기: {}", getMember);
 
         //editMember.jsp에 getMember키로 모델맵 매핑
         model.addAttribute("getMember", getMember);
     	logger.info("logger: member_idx 현재 회원번호: {}", member_idx);
-    	logger.info("logger: getMember 화면출력 {}", getMember);		
+    	logger.info("logger: getMember 화면출력 {}", getMember);	
+    	logger.info("logger: model 화면출력 {}", model);	
     	
     	
         return "editMember"; 
