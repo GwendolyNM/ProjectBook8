@@ -8,15 +8,17 @@
 	<div class="membercard">
 	
 		<div class="membercard_text" style="border: 1px;">
-			<table class="membercard_info" width=1100px>
+			<table class="membercard_info" width=1300px>
 				<tr>
 					<td width=30px>No</td>
-					<td width=30px>아이디</td>
+					<td width=100px>아이디</td>
 					<td width=70px>비밀번호</td>
-					<td width=90px align="center">이름</td>
-					<td width=130px>연락처</td>
-					<td width=110px>생년월일</td>
-					<td width=430px>주소</td>
+					<td width=150px align="center">이름</td>
+					<td width=150px>연락처</td>
+					<td width=150px>생년월일</td>
+					<td width=200px>도로명 주소</td>
+					<td width=200px>지번 주소</td>
+					<td width=100px>상세 주소</td>
 
 				</tr>
 				<c:forEach var="dto" items="${memberList}">
@@ -25,11 +27,13 @@
 						<td>${dto.member_id}</td>
 						<td>${dto.member_pw}</td>
 						<td align="center">${dto.member_name}</td>
-						<td>${dto.member_phone}</td>
+						<td>${dto.member_phone1}-${dto.member_phone2}-${dto.member_phone3}</td>
 						<td>${dto.member_date}</td>
-						<td>${dto.member_address}</td>
+						<td>${dto.member_addressRoad}</td>
+						<td>${dto.member_addressJibun}</td>
+						<td>${dto.member_addressDetail}</td>
 						<td width=60px>
-						<form:form method="post" name="memberDTO" action="editMember">
+						<form:form method="get" name="memberDTO" action="editMember">
 						<input type="hidden" name="member_idx" value="${dto.member_idx}">
 							<div class="membercard_button">
 								<button type="submit" class="btn btn-secondary btn-sm btn-dark">수정</button>
