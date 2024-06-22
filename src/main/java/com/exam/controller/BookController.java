@@ -39,6 +39,7 @@ public class BookController {
         }
 
         model.addAttribute("booksList", booksList);
+        logger.info("logger:bookList:{}", model);
         return "books";
     }
  	

@@ -74,7 +74,7 @@
 		from book as b 
 			left join 
 				rent as r ON b.book_idx = r.book_idx
-			where r.member_idx = #{keyword}
+			where r.member_idx = #{member_idx}
 	</select>
 </mapper>
 
