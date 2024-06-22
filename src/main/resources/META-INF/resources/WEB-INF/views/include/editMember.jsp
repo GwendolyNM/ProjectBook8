@@ -12,26 +12,33 @@
 
 		<div class="editMember">
 			<h1 class="editMemberhead">회원관리</h1>
-			<form:form method="post" modelAttribute="editMember" name="EditMemberSave" action="/app/memberList" align="center">
+			<form:form method="post" modelAttribute="editMember" name="EditMemberSave" align="center">
 			<c:forEach var="dto" items="${getMember}">
 				<tr>
-					<td> 회원번호 </td><td><input type="text" value="${dto.member_idx}" readonly /></td>
+					<td> 회원번호 </td><td><input type="text" name="member_idx" value="${dto.member_idx}" readonly /></td>
 					<br>
-					<td> 아이디 </td><td><input type="text" value="${dto.member_id}" readonly /></td>
+					<td> 아이디 </td><td><input type="text" name="member_id" value="${dto.member_id}" readonly /></td>
 					<br>
-					<td> 비밀번호 </td><td><input type="text" value="${dto.member_pw}" readonly /></td>
+					<td> 비밀번호 </td><td><input type="text" name="member_pw" value="${dto.member_pw}" readonly /></td>
 					<br>
-					<td> 회원이름 </td><td><input type="text"	value="${dto.member_name}" /></td>
+					<td> 회원이름 </td><td><input type="text" name="member_name" value="${dto.member_name}" /></td>
 					<br>
-					<td> 연락처 </td><td><input type="text" value="${dto.member_phone}"></td>
+					<td> 연락처 </td><td><input type="text" name="member_phone1" value="${dto.member_phone1}"></td>
 					<br>
-					<td> 가입일자 </td><td><input type="text" value="${dto.member_date}" /></td>
+					<td> 연락처 </td><td><input type="text" name="member_phone2" value="${dto.member_phone2}"></td>
 					<br>
-					<td> 회원주소 </td><td><input type="text" value="${dto.member_address}" /></td>
+					<td> 연락처 </td><td><input type="text" name="member_phone3" value="${dto.member_phone3}"></td>
+					<br>
+					<td> 가입일자 </td><td><input type="text" name="member_date" value="${dto.member_date}" readonly/></td>
+					<br>
+					<td> 도로명 주소 </td><td><input type="text" name="member_addressRoad" value="${dto.member_addressRoad}" /></td>
+					<br>
+					<td> 지번 주소 </td><td><input type="text" name="member_addressJibun" value="${dto.member_addressJibun}" /></td>
+					<br>
+					<td> 상세 주소 </td><td><input type="text" name="member_addressDetail" value="${dto.member_addressDetail}" /></td>
 					<br>
 				</tr>
 			</c:forEach>
-			<input type="hidden" name="member_idx" value="${dto.member_idx}"  action="editMemberSave" />
 			<button type="submit" class="btn btn-secondary btn-sm btn-dark">수정</button>
 			</form:form>
 			<br>
