@@ -10,7 +10,7 @@
 
 <div class="TodoApp">
 	<div class="container">
-		<form class="login-form flex-c">
+		<form class="login-form flex-c" action="updateMypage" method="post">
 			<div class="input-box flex-sb">
 				<input type="text" class="form-control" path="member_id" value="${member.member_id}" readonly/>
 				<errors path="member_id" cssClass="text-warning" />
@@ -45,7 +45,7 @@
 				<input type="text" class="form-control" name="member_addressDetail" placeholder="상세주소" value="${member.member_addressDetail}"/>
 			</div>
 			<div class="input-box">
-				<button name="login" class="btn btn-dark btn-submit">정보수정</button>
+				<button name="login" type="submit" class="btn btn-dark btn-submit">정보수정</button>
 			</div>
 		</form>
 	</div>

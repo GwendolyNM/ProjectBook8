@@ -103,9 +103,6 @@ public class MemberController {
 			 @Valid @ModelAttribute("getMember") MemberDTO getMember,
 			 BindingResult result) {
 		
-		int member_idx=getMember.getMember_idx();
-		
-		logger.info("logger member_idx 수정 적용 전{}", member_idx);
 		logger.info("logger member_id 수정 적용 전{}", member_id);
 		logger.info("logger member_name 수정 적용 전{}", member_name);
 		logger.info("logger member_phone1 수정 적용 전{}", member_phone1);
@@ -115,9 +112,12 @@ public class MemberController {
 		logger.info("logger member_addressJibun 수정 적용 전{}", member_addressJibun);
 		logger.info("logger member_addressDetail 수정 적용 전{}", member_addressDetail);
 		
-		getMember = new MemberDTO();
+		if(result.hasErrors()) {
+			logger.info("logger 입력오류{}", "입력값 확인하세요!");
+			return "redirect:mypage";
+		}
 		
-		getMember.setMember_idx(member_idx);
+		getMember.setMember_name(member_id);
 		getMember.setMember_name(member_name);
 		getMember.setMember_phone1(member_phone1);
 		getMember.setMember_phone2(member_phone2);
@@ -131,10 +131,7 @@ public class MemberController {
 //		model.getAttribute(member_idx);
 //		(MemberDTO) managerService.getMember(Integer.parseInt(member_idx));
 		
-		if(result.hasErrors()) {
-			logger.info("logger 입력오류{}", "입력값 확인하세요!");
-			return "redirect:mypage";
-		}
+		
 		memberService.updateMypage(getMember);
 		logger.info("logger: updateMypage DB 변경 {}", getMember);
 
