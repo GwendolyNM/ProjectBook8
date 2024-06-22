@@ -1,6 +1,8 @@
 package com.exam.service;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.exam.dto.MemberDTO;
 import com.exam.mapper.MemberMapper;
@@ -30,10 +32,17 @@ public class MemberServiceImpl
 	public int idCheck(String member_id) {
 		return  memberMapper.idCheck(member_id);
 	}
-//s.....
+
 	@Override
 	public MemberDTO findMypage(String member_id) {
 		return memberMapper.findMypage(member_id);
+	}
+
+	@Override
+	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
+	public void updateMypage(MemberDTO memberDTO) {
+		this.memberMapper.updateMypage(memberDTO);
+		
 	}
 
 
