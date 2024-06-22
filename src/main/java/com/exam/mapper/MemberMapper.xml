@@ -37,6 +37,7 @@
     <select id="findById" parameterType="string" resultType="MemberDTO">
     
 				    select 
+				    	   member_idx,
 				      	   member_id, 
 				      	   member_pw
 				      from member

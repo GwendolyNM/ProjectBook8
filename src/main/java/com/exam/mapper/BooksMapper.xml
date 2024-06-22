@@ -59,7 +59,7 @@
 	<!--책 예약하기 -->
 	<insert id="rentBook" parameterType="RentDTO">
 		INSERT INTO rent (book_idx, member_idx, rent_date, rent_return, return_YN)
-		VALUES (#{book_idx}, (SELECT member_idx FROM member WHERE member_name = #{member_idx} limit 1), NOW(), DATE_ADD(NOW(), INTERVAL 7 DAY),'N')
+		VALUES (#{book_idx}, (SELECT member_idx FROM member WHERE member_id = #{member_id} limit 1), NOW(), DATE_ADD(NOW(), INTERVAL 7 DAY),'N')
 	</insert>
 	
 	<!-- 대여목촉 -->

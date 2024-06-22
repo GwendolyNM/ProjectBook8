@@ -1,0 +1,46 @@
+@charset "UTF-8";
+.Login{
+	width: 1000px;
+	flex-direction: column;
+}
+.login-form{
+	width: 300px;
+	flex-direction: column;
+}
+
+.input-box{
+	width: 100%;
+	min-height: 35px;
+	margin-bottom: 5px;
+}
+.input-box input{
+	margin-bottom: 5px;
+	height: 42px;
+}
+.input-box select{
+	width: 90px;
+	height: 42px;
+	margin-bottom: 5px;
+}
+.btn{
+	width: 130px;
+	height: 42px;
+}
+.btn-normal{
+	margin: 0 0 5px 5px;
+}
+
+.input-phone{
+	margin-left: 5px;
+}
+
+.btn-submit{
+	width: 100%;
+}
+
+.error {
+   color: red;
+}
+.success {
+    color: green;
+}

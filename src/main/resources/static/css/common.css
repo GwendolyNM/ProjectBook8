@@ -2,16 +2,34 @@ body {
     margin: 0;
     padding: 0;
 }
+.flex-c{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.flex-sb{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;	
+}
+.flex-sa{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;	
+}
 .App {
 	width: 100%;
-	min-height: 10 20px;
   	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
 }
+.max-width{
+	width: 100%;
+}
 .container{
 	display: flex;
+	min-height: 530px; 
 	flex-wrap: wrap;
 	justify-content: space-around;
 }
