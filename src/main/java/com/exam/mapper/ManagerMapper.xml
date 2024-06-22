@@ -63,6 +63,42 @@
 				     where member_idx=#{member_idx}   	
      </update>
      
+     <!-- 관리자 : 책 불러오기 -->
+     <select id="getBook" parameterType="String" resultType="BooksDTO">
+     
+     			    select book_idx,
+     			           book_author,
+     		    		   book_pub,
+     		    		   book_name,
+     		    		   book_year,
+     		    		   book_ISBN,
+     		    		   book_image,
+     		    		   book_genre_idx
+     		    	  from book
+     		    	 where book_idx=#{book_idx}
+     </select>
+     
+     <!-- 관리자 : 책 추가 -->
+     <insert id="addBook" parameterType="BooksDTO">
+     
+     		  insert into book( 
+     		    		  book_author,
+     		    		  book_pub,
+     		    		  book_name,
+     		    		  book_year,
+     		    		  book_ISBN,
+     		    		  book_image,
+     		    		  book_genre_idx
+     		   ) values ( #{book_author},
+     		    		  #{book_pub},
+     		    		  #{book_name},
+     		    		  #{book_year},
+     		    		  #{book_ISBN},
+     		    		  #{book_image},
+     		    		  #{book_genre})
+     			  
+     </insert>
+     
 </mapper>
 
 
