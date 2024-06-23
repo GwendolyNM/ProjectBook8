@@ -9,13 +9,13 @@
 		<button type="submit" class="btn btn-secondary btn-sm btn-dark">검색</button>
 	</form>
 </div>
-<div class="container">
+<div class="container scrollbar">
 	<c:forEach var="dto" items="${booksList}">
 		<div class="bookcard">
 			<div class="bookcard_img">
 				<img src="images/bookimage/${dto.book_image}" alt="">
 			</div>
-			<div class="bookcard_text" style="border: 1px;">
+			<div class="bookcard_text">
 				<table class="bookcard_info">
 					<tr>
 						<td>등록번호</td>

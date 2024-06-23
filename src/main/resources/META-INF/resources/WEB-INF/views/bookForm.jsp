@@ -8,7 +8,7 @@
 <title>Bookfinity 관리자모드 : 회원관리</title>
 
 <link href="webjars/bootstrap/5.1.3/css/bootstrap.min.css"  rel="stylesheet" >
-<link rel="stylesheet" type="text/css" href="/app/css/member.css">
+<link rel="stylesheet" type="text/css" href="/app/css/bookForm.css">
 <link rel="stylesheet" type="text/css" href="/app/css/common.css">
 </head>
 <body>
@@ -19,6 +19,6 @@
 		 	
 		 	<jsp:include page="include/footer.jsp" />
 		</div>
-	
+		<script src="https://kit.fontawesome.com/383b0a4783.js" crossorigin="anonymous"></script>
 </body>
 </html>

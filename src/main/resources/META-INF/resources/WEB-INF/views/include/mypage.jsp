@@ -12,11 +12,11 @@
 	<div class="container">
 		<form class="login-form flex-c" action="updateMypage" method="post">
 			<div class="input-box flex-sb">
-				<input name="member_id" type="text" class="form-control" path="member_id" value="${member.member_id}" readonly/>
+				<input type="text" name="member_id" class="form-control" path="member_id" value="${member.member_id}" readonly/>
 				<errors path="member_id" cssClass="text-warning" />
 			</div>
 			<div class="input-box">
-				<input name="member_name" type="text" class="form-control" path="member_name" placeholder="이름" value="${member.member_name}"/>
+				<input type="text" name="member_name"  class="form-control" path="member_name" placeholder="이름" value="${member.member_name}"/>
 				<errors path="member_name" cssClass="text-warning" />
 			</div>
 			<div class="input-box flex-sb">
@@ -44,8 +44,9 @@
 				<input type="text" value="${member.member_addressJibun}" name="member_addressJibun" class="form-control" id="sample4_jibunAddress" placeholder="지번주소">
 				<input type="text" class="form-control" name="member_addressDetail" placeholder="상세주소" value="${member.member_addressDetail}"/>
 			</div>
-			<div class="input-box">
-				<button name="login" type="submit" class="btn btn-dark btn-submit">정보수정</button>
+			<div class="input-box flex-sb">
+				<button type="submit" class="btn btn-dark btn-submit">정보수정</button>
+				<a href="home" class="btn btn-dark btn-submit">취소</a>
 			</div>
 		</form>
 	</div>

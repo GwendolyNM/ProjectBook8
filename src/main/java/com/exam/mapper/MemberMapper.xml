@@ -61,7 +61,7 @@
 	<update id="updateMypage" parameterType="MemberDTO">
      				
      				update member
-				       set member_id = #{member_id},
+				       set member_name = #{member_name},
 				           member_phone1= #{member_phone1},
 				           member_phone2= #{member_phone2},
 				           member_phone3= #{member_phone3},
