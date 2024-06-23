@@ -39,6 +39,7 @@ public class ManagerServiceImpl implements ManagerService{
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
 	public void editMember(MemberDTO memberDTO) {
+		logger.info("logger: Service 접근 editMemberDTO{}", memberDTO);
 		this.managerMapper.editMember(memberDTO);
 	}
 

@@ -1,0 +1,38 @@
+.membercard{
+	margin-top: 30px;
+	width: 1200px;
+	flex-direction: column;
+}
+.membercard-top{
+	border-bottom: 1px solid black;
+	width: 100%;
+	height: 25px;
+	margin-bottom: 20px;
+}
+.membercard_text{
+	margin-top: 10px;
+	width: 100%;
+}
+.membercard_info{
+	width: 1150px;
+}
+.membercard_info tr:nth-child(even){
+	background-color: rgba(0,0,0, 0.05);
+}
+.membercard-top p{
+	font-weight: bold;
+}
+.table-column td{
+	text-align: center;
+}
+.text-c{
+	text-align: center;
+}
+
+.table-row {
+	height: 100px;
+}
+.td-btn{
+	height: 100px;
+	width: 100%;
+}

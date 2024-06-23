@@ -8,6 +8,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.List;
+import java.util.UUID;
 
 import javax.validation.Valid;
 
@@ -83,7 +84,7 @@ public class ManagerController {
 								 @Valid @ModelAttribute("getMember") MemberDTO getMember,
 								 BindingResult result) {
 		
-		
+		logger.info("logger: post editMember 받음 {}", member_id);	
 		int member_idx=getMember.getMember_idx();
 		logger.info("logger member_idx 수정 적용 전{}", member_idx);
 		logger.info("logger member_id 수정 적용 전{}", member_id);
@@ -149,22 +150,26 @@ public class ManagerController {
 										 @RequestParam("book_name") String book_name,
 										 @RequestParam("book_year") int book_year,
 										 @RequestParam("book_ISBN") String book_ISBN,
-										 @RequestParam("book_image") MultipartFile bookImageFile,
+										 @RequestParam("book_images") MultipartFile bookImageFile,
 										 @RequestParam("book_genre_idx") String book_genre_idx,
 										 @Valid @ModelAttribute("booksDTO") BooksDTO addBook,
 										 BindingResult result) {
 		
 		
+		if(result.hasErrors()) {
+			logger.info("logger: addBook Post접근 result{}", result);
+			return "bookForm";
+		}
+		
 		List<BooksDTO> bookList = managerService.getBook(book_idx);
 		model.addAttribute("BookList", bookList);
 		
-		String book_image = bookImageFile.getOriginalFilename();
+		String book_image = UUID.randomUUID().toString() + "_" + bookImageFile.getOriginalFilename();
 		logger.info("logger: 이미지 파일명{}", book_image);
 		
-		String uploadDir = "C:/images/bookimage/";
+		String uploadDir = "src/main/resources/static/images/Bookimage/";
 		
 		
-		model.addAttribute(bookList);
 		  try {
 		        // 이미지를 로컬 디렉토리에 저장
 		        Path uploadPath = Paths.get(uploadDir);
@@ -178,9 +183,9 @@ public class ManagerController {
 		        // 예외 처리
 		        e.printStackTrace();
 		    }
-		if(result.hasErrors()) {
-			return "bookForm";
-		}
+		
+		  // 파일 이름을 BooksDTO 객체에 설정
+	    addBook.setBook_image(book_image);
 		int n=managerService.addBook(addBook);
 		logger.info("logger: addBook Post접근 booksDTO{}", addBook);
 		if(n>0) {

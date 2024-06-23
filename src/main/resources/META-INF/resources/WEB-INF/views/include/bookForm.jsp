@@ -29,14 +29,14 @@
 			<h1 class="addBookhead">도서 추가</h1>
 			<div class="addBookForm">
 				<form:form method="post" modelAttribute="booksDTO"
-					enctype="multipart/form-data">
+					enctype="multipart/form-data" action="addBook">
 					<div>
-						<label for="book_image">도서 이미지</label>
+						<label for="book_images">도서 이미지</label>
 						<div class="addImage" id="image-show">
 							<!-- 이미지 띄울 공간 -->
 						</div>
 						<input type="file" accept="image/*" onchange="loadFile(this)"
-						name="book_image" path="book_image" id="book_image" >
+						name="book_images" path="book_image" id="book_image" >
 					</div>
 					<div>
 						<label for="book_idx">등록번호</label>
