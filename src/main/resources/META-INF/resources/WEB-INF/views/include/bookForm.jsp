@@ -15,7 +15,9 @@
 					<!-- 이미지 띄울 공간 -->
 				</div>
 				<input type="file" accept="image/*" onchange="loadFile(this)" name="book_image" path="book_image" id="book_image" style="display: none;">
-				
+				<label for="book_image" class="custom-file-upload btn btn-dark">
+						이미지 업로드
+				</label>
 			</div>
 			<div class="book-text-box flex-sb">
 				<div class="input-box">
@@ -56,10 +58,8 @@
 					</select>
 				</div>
 				<div class="input-box flex-sb">
-					<label for="book_image" class="custom-file-upload btn btn-dark">
-						이미지 업로드
-					</label>
 					<button type="submit" name="addBook" class="btn btn-dark btn-submit">도서 추가</button>
+					<a href="home" class="btn btn-dark btn-submit">취소</a>
 				</div>
 			</div>
 		</form:form>

@@ -42,29 +42,47 @@
 						<td>${dto.book_genre }</td>
 					</tr>
 				</table>
-				<sec:authorize access="hasRole('ROLE_USER') and !hasRole('ROLE_ADMIN')">
-					<div class="bookcard_button">
-					<form method="post" action="rent">
-						<!-- 숨겨진 필드로 등록번호를 전송 -->
-						<input type="hidden" name="book_idx" value="${dto.book_idx}">
-						<button type="submit" class="btn btn-secondary btn-sm btn-dark fw-bold">예약하기</button>
-					</form>
+				<div class="flex-sa">
+					<sec:authorize access="hasRole('ROLE_USER') and !hasRole('ROLE_ADMIN')">
+						<div class="bookcard_button">
+						<form method="post" action="rent">
+							<!-- 숨겨진 필드로 등록번호를 전송 -->
+							<input type="hidden" name="book_idx" value="${dto.book_idx}">
+							<button type="submit" class="btn btn-secondary btn-sm btn-dark fw-bold">예약하기</button>
+						</form>
+					</div>
+					</sec:authorize>
+					<sec:authorize access="hasRole('ROLE_ADMIN')">
+						<div class="bookcard_button">
+							<form method="post" name="bookInfo" action="updateBookForm">
+								<!-- 숨겨진 필드로 등록번호를 전송 -->
+								<input type="hidden" name="book_idx" value="${dto.book_idx}">
+								<input type="hidden" name="book_name" value="${dto.book_name}">
+								<input type="hidden" name="book_author" value="${dto.book_author}">
+								<input type="hidden" name="book_pub" value="${dto.book_pub}">
+								<input type="hidden" name="book_year" value="${dto.book_year}">
+								<input type="hidden" name="book_genre_idx" value="${dto.book_genre_idx}">
+								<input type="hidden" name="book_ISBN" value="${dto.book_ISBN}">
+								<input type="hidden" name="book_image" value="${dto.book_image}">
+								<button type="submit" class="btn btn-dark btn-sm">수정하기</button>
+							</form>
+						</div>
+					</sec:authorize>
+					<sec:authorize access="hasRole('ROLE_ADMIN')">
+						<div class="bookcard_button">
+							<form method="post" action="책삭제">
+								<!-- 숨겨진 필드로 등록번호를 전송 -->
+								<input type="hidden" name="book_idx" value="${dto.book_idx}">
+								<input type="hidden" name="book_name" value="${dto.book_name}">
+								<input type="hidden" name="book_author" value="${dto.book_author}">
+								<input type="hidden" name="book_pub" value="${dto.book_pub}">
+								<input type="hidden" name="book_year" value="${dto.book_year}">
+								<input type="hidden" name="book_genre" value="${dto.book_genre}">
+								<button type="submit" class="btn btn-dark btn-sm">삭제하기</button>
+							</form>
+						</div>
+					</sec:authorize>
 				</div>
-				</sec:authorize>
-				<sec:authorize access="hasRole('ROLE_ADMIN')">
-					<div class="bookcard_button">
-					<form method="post" action="책수정페이지로이동">
-						<!-- 숨겨진 필드로 등록번호를 전송 -->
-						<input type="hidden" name="book_idx" value="${dto.book_idx}">
-						<input type="hidden" name="book_name" value="${dto.book_name}">
-						<input type="hidden" name="book_author" value="${dto.book_author}">
-						<input type="hidden" name="book_pub" value="${dto.book_pub}">
-						<input type="hidden" name="book_year" value="${dto.book_year}">
-						<input type="hidden" name="book_genre" value="${dto.book_genre}">
-						<button type="submit" class="btn btn-secondary btn-sm btn-dark fw-bold">수정하기</button>
-					</form>
-				</div>
-				</sec:authorize>
 			</div>
 		</div>
 	</c:forEach>

@@ -61,4 +61,10 @@ public class ManagerServiceImpl implements ManagerService{
 		return this.managerMapper.getBook(book_idx);
 	}
 
+	@Override
+	public void updateBook(BooksDTO booksDTO) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

@@ -16,7 +16,8 @@
 			book_ISBN, 
 			book_image, 
 			r.return_YN, 
-			g.book_genre
+			g.book_genre,
+			b.book_genre_idx
 		from book as b 
 			left join 
 				rent as r ON b.book_idx = r.book_idx
