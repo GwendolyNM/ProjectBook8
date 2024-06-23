@@ -59,7 +59,7 @@
 				</div>
 				<div class="input-box flex-sb">
 					<button type="submit" name="addBook" class="btn btn-dark btn-submit">도서 추가</button>
-					<a href="home" class="btn btn-dark btn-submit">취소</a>
+					<a href="books" class="btn btn-dark btn-submit">취소</a>
 				</div>
 			</div>
 		</form:form>

@@ -20,6 +20,8 @@
 				      	   member_addressJibun,
 				      	   member_addressDetail
 				      from member
+				      where member_manager=0
+				      and member_delete=0
      </select>
      
      
@@ -39,15 +41,16 @@
 				      	   member_addressDetail 
 				      from member
 				     where member_idx=#{member_idx}
+				     and member_delete=0
      </select>
      
      
      <!-- 관리자 : 회원삭제 -->
-     <delete id="deleteMember" parameterType="int">
-     
-			   delete from member  
-			   		 where member_idx= #{member_idx}
-     </delete>
+     <update id="deleteMember" parameterType="int">
+     		update member
+				       set member_delete = 1
+			where member_idx= #{member_idx}
+     </update>
      
      <!-- 관리자 : 회원수정 -->
      <update id="editMember" parameterType="MemberDTO">
@@ -111,7 +114,11 @@
 				           book_genre_idx = #{book_genre_idx}  
 				     where book_idx=#{book_idx}
      </update>
+     <delete id="deleteBook" parameterType="String">
      
+			   delete from book  
+			   		 where book_idx= #{book_idx}
+     </delete>
 </mapper>
 
 

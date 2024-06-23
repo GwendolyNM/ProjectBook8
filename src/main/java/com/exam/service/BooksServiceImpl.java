@@ -37,6 +37,12 @@ public class BooksServiceImpl implements BooksService{
 		return booksMapper.myBooksList(keyword);
 	}
 
+	@Override
+	public void deleteMyBook(String book_idx) {
+		this.booksMapper.deleteMyBook(book_idx);
+		
+	}
+
 		
 
 }

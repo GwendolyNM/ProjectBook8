@@ -42,6 +42,7 @@
 				      	   member_manager
 				      from member
 				     where member_id= #{member_id}
+				     and member_delete=0
 	</select>
 
     <select id="findMypage" parameterType="string" resultType="MemberDTO">

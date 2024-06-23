@@ -8,6 +8,8 @@
 <link href="webjars/bootstrap/5.1.3/css/bootstrap.min.css"  rel="stylesheet" >
 <link rel="stylesheet" type="text/css" href="/app/css/myBooks.css">
 <link rel="stylesheet" type="text/css" href="/app/css/common.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script type="text/javascript" src = "js/myBooks.js"></script>
 </head>
 <body>
       <div class="App">

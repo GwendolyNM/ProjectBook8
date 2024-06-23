@@ -13,4 +13,5 @@ public interface ManagerService {
 	public int addBook(BooksDTO booksDTO);
 	public List<BooksDTO> getBook(String book_idx);
 	public void updateBook(BooksDTO booksDTO);
+	public void deleteBook(String book_idx);
 }

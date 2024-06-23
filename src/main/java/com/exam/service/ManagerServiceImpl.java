@@ -63,8 +63,13 @@ public class ManagerServiceImpl implements ManagerService{
 
 	@Override
 	public void updateBook(BooksDTO booksDTO) {
-		// TODO Auto-generated method stub
+		this.managerMapper.updateBook(booksDTO);
 		
+	}
+
+	@Override
+	public void deleteBook(String book_idx) {
+		this.managerMapper.deleteBook(book_idx);
 	}
 
 }
