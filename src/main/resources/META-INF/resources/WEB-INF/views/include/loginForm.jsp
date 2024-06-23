@@ -7,7 +7,7 @@
 			<input type="password" class="form-control" name="passwd" id="passwd" placeholder="비밀번호를 입력하세요">
 		<button type="submit" class="btn btn-dark">로그인</button>
 		<div class="login-other">
-			<a href="" class="text-dark">회원가입</a>
+			<a href="signup" class="text-dark">회원가입</a>
 			<span>/</span>
 			<a href="" class="text-dark">비밀번호찾기</a>
 		</div>

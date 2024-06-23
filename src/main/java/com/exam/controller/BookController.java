@@ -71,5 +71,11 @@ public class BookController {
 	    booksService.rentBook(rentDTO);
 	    return "redirect:books";
 	}
-	
+	@PostMapping("/deleteMyBook")
+	public String deleteMyBook(@RequestParam("book_idx") String book_idx) {
+		logger.info("logger 삭제요청 : {} ", book_idx);
+		booksService.deleteMyBook(book_idx);
+		logger.info("logger 삭제처리 : {} ", book_idx);
+		return "redirect:myBooks";
+	}
 }

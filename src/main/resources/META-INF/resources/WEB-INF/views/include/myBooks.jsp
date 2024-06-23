@@ -16,6 +16,7 @@
 				<td width="100px" class="">출판사</td>
 				<td width="100px">대여일</td>
 				<td width="100px" class="">반납일</td>
+				<td width="50px" class=""></td>
 			</tr>
 			<c:forEach var="dto" items="${myBooksList}">
 				<tr class="table-row">
@@ -28,6 +29,12 @@
 					<td class="text-c">${dto.book_pub}</td>
 					<td class="text-c">${dto.rent_date}</td>
 					<td class="text-c" >${dto.rent_return}</td>
+					<td class="text-c" >
+						<form method="post" action="deleteMyBook">
+							<input type="hidden" name="book_idx" value="${dto.book_idx}">
+							<button type="submit" class="btn btn-danger btn-sm deleteButton" >예약취소</button>
+						</form>
+					</td>
 				</tr>
 			</c:forEach>
 		</table>

@@ -128,9 +128,9 @@ public class ManagerController {
 	}
 	
 	@PostMapping("/deleteMember")
-	public String showDeleteMemberPage(@RequestParam("member_idx") String member_idx) {
-		logger.info("logger 삭제요청 : {} ", member_idx);
-		managerService.deleteMember(Integer.parseInt(member_idx));
+	public String deleteMember(@RequestParam("member_idx") int member_idx) {
+		logger.info("logger 삭제요청 mamber_idx: {} ", member_idx);
+		managerService.deleteMember(member_idx);
 		logger.info("logger 삭제처리 : {} ", member_idx);
 		return "redirect:memberList";
 	}
@@ -176,7 +176,7 @@ public class ManagerController {
 		managerService.addBook(addBook);
 		
 		File f = new File(uploadPath, image_name);
-		
+		logger.info("File", f);
 		
 		try {
 			bookImageFile.transferTo(f);
@@ -241,11 +241,12 @@ public class ManagerController {
 		addBook.setBook_ISBN(book_ISBN);
 		addBook.setBook_genre(book_genre_idx);
 		addBook.setBook_image(image_name);
+		
+		logger.info("logger: updateBook 데이터 전달 확인{}", addBook);
 		managerService.updateBook(addBook);
 		
 		File f = new File(uploadPath, image_name);
 		
-		logger.info("logger: updateBook 데이터 전달 확인{}", addBook);
 		
 		try {
 			bookImageFile.transferTo(f);
@@ -256,5 +257,12 @@ public class ManagerController {
 		}
 		return "redirect:books";
 		
+	}
+	@PostMapping("/deleteBook")
+	public String deleteBook(@RequestParam("book_idx") String book_idx) {
+		logger.info("Book 삭제요청 : {} ", book_idx);
+		managerService.deleteBook(book_idx);
+		logger.info("Book 삭제처리 : {} ", book_idx);
+		return "redirect:books";
 	}
 }

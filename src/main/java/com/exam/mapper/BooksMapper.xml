@@ -79,6 +79,11 @@
 				rent as r ON b.book_idx = r.book_idx
 			where r.member_idx = #{member_idx}
 	</select>
+	<!-- 예약목록삭제 -->
+	<delete id="deleteMyBook" parameterType="String">
+			   delete from rent  
+			   		 where book_idx= #{book_idx}
+     </delete>
 </mapper>
 
 

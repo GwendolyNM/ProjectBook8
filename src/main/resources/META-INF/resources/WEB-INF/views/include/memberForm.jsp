@@ -6,7 +6,6 @@
 
 <script src="webjars/bootstrap/5.1.3/js/bootstrap.min.js"></script>
 <script src="webjars/jquery/3.6.0/jquery.min.js"></script>
-<script type="text/javascript" src = "js/memberForm.js"></script>
 
 <div class="TodoApp">
 	<div class="container">
@@ -55,11 +54,10 @@
 				<input type="text" name="member_addressJibun" class="form-control" id="sample4_jibunAddress" placeholder="지번주소">
 				<input type="text" class="form-control" name="member_addressDetail" placeholder="상세주소"/>
 			</div>
-			<div class="input-box">
+			<div class="input-box flex-sb">
 				<button name="login" id="signupIdcheck" class="btn btn-dark btn-submit">회원가입</button>
+				<a href="home" class="btn btn-dark btn-submit">취소</a>
 			</div>
 		</form:form>
 	</div>
 </div>
-
-<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>

@@ -11,4 +11,5 @@ public interface BooksService {
 	public List<BooksDTO> searchBooksList(String keyword);
 	public int rentBook(RentDTO rentDTO);
 	public List<RentDTO> myBooksList(String keyword);
+	public void deleteMyBook(String book_idx);
 }

@@ -38,7 +38,7 @@
 										<button type="submit" class="btn btn-dark">수정</button>
 									</div>
 								</form:form>
-								<form:form method="post" name="deleteMemberDTO" action="deleteMember">
+								<form:form method="post" name="deleteMember" action="deleteMember">
 									<input type="hidden" name="member_idx" value="${dto.member_idx}">
 									<div class="membercard_button">
 										<button type="submit" class="btn btn-dark">삭제</button>
