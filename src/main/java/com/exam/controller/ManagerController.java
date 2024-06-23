@@ -1,7 +1,8 @@
 package com.exam.controller;
 
 
-	import java.io.IOException;
+	import java.io.File;
+import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -13,6 +14,8 @@ import javax.validation.Valid;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -145,7 +148,7 @@ public class ManagerController {
 	public String showAddBookSuccessPage(ModelMap model,
 										 @RequestParam("book_idx") String book_idx,
 										 @RequestParam("book_author") String book_author,
-										 @RequestParam("book_pub") String member_name,
+										 @RequestParam("book_pub") String book_pub,
 										 @RequestParam("book_name") String book_name,
 										 @RequestParam("book_year") int book_year,
 										 @RequestParam("book_ISBN") String book_ISBN,
@@ -155,60 +158,103 @@ public class ManagerController {
 										 BindingResult result) {
 		
 		
-		List<BooksDTO> bookList = managerService.getBook(book_idx);
-		model.addAttribute("BookList", bookList);
-		
-		String book_image = bookImageFile.getOriginalFilename();
-		logger.info("logger: 이미지 파일명{}", book_image);
-		
-		String uploadDir = "C:/images/bookimage/";
 		
 		
-		model.addAttribute(bookList);
-		  try {
-		        // 이미지를 로컬 디렉토리에 저장
-		        Path uploadPath = Paths.get(uploadDir);
-		        Files.createDirectories(uploadPath);
-
-		        try (InputStream inputStream = bookImageFile.getInputStream()) {
-		            Path filePath = uploadPath.resolve(book_image);
-		            Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
-		        }
-		    } catch (IOException e) {
-		        // 예외 처리
-		        e.printStackTrace();
-		    }
-		if(result.hasErrors()) {
-			return "bookForm";
+		String image_name = "0"+book_genre_idx+"_"+book_idx+".jfif";
+		logger.info("logger: 이미지 파일명{}", image_name);
+		
+		String uploadPath = "C:\\springboot_study\\sts-4.22.1.RELEASE\\workspace\\ProjectBook8\\src\\main\\resources\\static\\images\\Bookimage";
+		
+		addBook.setBook_idx(book_idx);
+		addBook.setBook_author(book_author);
+		addBook.setBook_pub(book_pub);
+		addBook.setBook_name(book_name);
+		addBook.setBook_year(book_year);
+		addBook.setBook_ISBN(book_ISBN);
+		addBook.setBook_genre(book_genre_idx);
+		addBook.setBook_image(image_name);
+		managerService.addBook(addBook);
+		
+		File f = new File(uploadPath, image_name);
+		
+		
+		try {
+			bookImageFile.transferTo(f);
+		} catch (IllegalStateException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
-		int n=managerService.addBook(addBook);
-		logger.info("logger: addBook Post접근 booksDTO{}", addBook);
-		if(n>0) {
-			model.addAttribute("messege", "도서 추가 성공");
-			return "redirect:/home";
-		} else {
-			model.addAttribute("messege", "도서 추가 실패");
-		return "redirect:bookForm";
-		}
-	}
+		return "redirect:addBook";
+		
 	}
 	
-	// 아아디 찾기 , 비밀번호 설정, 
+	@PostMapping("/updateBookForm") 
+	public String showmypage(ModelMap m, @RequestParam("book_idx") String book_idx,
+										 @RequestParam("book_author") String book_author,
+										 @RequestParam("book_pub") String book_pub,
+										 @RequestParam("book_name") String book_name,
+										 @RequestParam("book_year") int book_year,
+										 @RequestParam("book_ISBN") String book_ISBN,
+										 @RequestParam("book_genre_idx") String book_genre_idx,
+										 @RequestParam("book_image") String book_image,
+										 BooksDTO bookDTO) {
+		
+		bookDTO.setBook_idx(book_idx);
+		bookDTO.setBook_author(book_author);
+		bookDTO.setBook_pub(book_pub);
+		bookDTO.setBook_name(book_name);
+		bookDTO.setBook_year(book_year);
+		bookDTO.setBook_ISBN(book_ISBN);
+		bookDTO.setBook_genre(book_genre_idx);
+		bookDTO.setBook_image(book_image);
+		m.addAttribute("bookInfo",bookDTO);
+		
+		logger.info("updatBook페이지 데이터 확인", bookDTO);
+		
+		return "updateBookForm";
+	}
 	
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	@PostMapping("/updateBook")
+	public String updateBook(ModelMap model, @RequestParam("book_idx") String book_idx,
+											 @RequestParam("book_author") String book_author,
+											 @RequestParam("book_pub") String book_pub,
+											 @RequestParam("book_name") String book_name,
+											 @RequestParam("book_year") int book_year,
+											 @RequestParam("book_ISBN") String book_ISBN,
+											 @RequestParam("book_image") MultipartFile bookImageFile,
+											 @RequestParam("book_genre_idx") String book_genre_idx,
+											 @Valid @ModelAttribute("booksDTO") BooksDTO addBook,
+											 BindingResult result) {
+		
+		String image_name = "0"+book_genre_idx+"_"+book_idx+".jfif";
+		logger.info("logger: 이미지 파일명{}", image_name);
+		logger.info("logger: updateBook동작확인{}");
+		
+		String uploadPath = "C:\\springboot_study\\sts-4.22.1.RELEASE\\workspace\\ProjectBook8\\src\\main\\resources\\static\\images\\Bookimage";
+		
+		addBook.setBook_idx(book_idx);
+		addBook.setBook_author(book_author);
+		addBook.setBook_pub(book_pub);
+		addBook.setBook_name(book_name);
+		addBook.setBook_year(book_year);
+		addBook.setBook_ISBN(book_ISBN);
+		addBook.setBook_genre(book_genre_idx);
+		addBook.setBook_image(image_name);
+		managerService.updateBook(addBook);
+		
+		File f = new File(uploadPath, image_name);
+		
+		logger.info("logger: updateBook 데이터 전달 확인{}", addBook);
+		
+		try {
+			bookImageFile.transferTo(f);
+		} catch (IllegalStateException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return "redirect:books";
+		
+	}
+}
