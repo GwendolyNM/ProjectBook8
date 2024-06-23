@@ -103,23 +103,12 @@ public class MemberController {
 			 @Valid @ModelAttribute("getMember") MemberDTO getMember,
 			 BindingResult result) {
 		
-		logger.info("logger member_id 수정 적용 전{}", member_id);
-		logger.info("logger member_name 수정 적용 전{}", member_name);
-		logger.info("logger member_phone1 수정 적용 전{}", member_phone1);
-		logger.info("logger member_phone2 수정 적용 전{}", member_phone2);
-		logger.info("logger member_phone3 수정 적용 전{}", member_phone3);
-		logger.info("logger member_addressRoad 수정 적용 전{}", member_addressRoad);
-		logger.info("logger member_addressJibun 수정 적용 전{}", member_addressJibun);
-		logger.info("logger member_addressDetail 수정 적용 전{}", member_addressDetail);
-		
-		
-		
 //		if(result.hasErrors()) {
 //			logger.info("logger 입력오류{}", "입력값 확인하세요!");
 //			return "redirect:mypage";
 //		}
 		
-		getMember.setMember_name(member_id);
+		getMember.setMember_id(member_id);
 		getMember.setMember_name(member_name);
 		getMember.setMember_phone1(member_phone1);
 		getMember.setMember_phone2(member_phone2);

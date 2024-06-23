@@ -70,7 +70,9 @@
 			b.book_pub, 
 			b.book_name, 
 			b.book_image,
-        	r.member_idx
+        	r.member_idx,
+        	r.rent_date,
+        	r.rent_return
 		from book as b 
 			left join 
 				rent as r ON b.book_idx = r.book_idx

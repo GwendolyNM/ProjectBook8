@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Bookfinity - BookList</title>
 <link href="webjars/bootstrap/5.1.3/css/bootstrap.min.css"  rel="stylesheet" >
 <link rel="stylesheet" type="text/css" href="/app/css/booksList.css">
 <link rel="stylesheet" type="text/css" href="/app/css/common.css">

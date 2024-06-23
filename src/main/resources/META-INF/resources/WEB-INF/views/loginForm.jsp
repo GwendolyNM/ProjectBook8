@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>메인홈페이지</title>
+<title>Bookfinity - LogIn</title>
 <link href="webjars/bootstrap/5.1.3/css/bootstrap.min.css"  rel="stylesheet" >
 <link rel="stylesheet" type="text/css" href="/app/css/common.css">
 <link rel="stylesheet" type="text/css" href="/app/css/login.css">

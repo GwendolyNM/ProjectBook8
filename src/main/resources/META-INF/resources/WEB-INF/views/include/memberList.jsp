@@ -6,11 +6,12 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 <div class="container">
-	<div class="membercard">
+	<div class="membercard flex-c">
 		<div class="membercard-top">
 			<p>BookProject Members</p>
 		</div>
-		<div class="membercard_text flex-c" style="border: 1px;">
+		<div class="membercard_text flex-c">
+		<div class="membertable-box scrollbar">
 			<table class="membercard_info">
 				<tr class="table-column">
 					<td width=30px class="">No</td>
@@ -48,6 +49,7 @@
 					</tr>
 				</c:forEach>
 			</table>
+		</div>
 		</div>
 	</div>
 </div>

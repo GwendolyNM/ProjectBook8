@@ -3,19 +3,30 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <div class="container">
-	<c:forEach var="dto" items="${myBooksList}">
-		<div class="bookcard">
-			<div class="bookcard_img">
-				<img src="images/bookimage/${dto.book_image}" alt="">
-			</div>
-			<div class="bookcard_text">
-				<table class="bookcard_info">
-					<tr>
-						<td>등록번호</td>
-						<td>${dto.book_idx}</td>
-					</tr>
-				</table>
-			</div>
-		</div>
-	</c:forEach>
+	<div class="mybooklist-box scrollbar">
+		<table class="book_info">
+			<tr class="table-column">
+				<td width="130px" class="">표지</td>
+				<td width="100px" class="">고유번호</td>
+				<td>제목</td>
+				<td width="100px" class="">저자</td>
+				<td width="100px" class="">출판사</td>
+				<td width="100px">대여일</td>
+				<td width="100px" class="">반납일</td>
+			</tr>
+			<c:forEach var="dto" items="${myBooksList}">
+				<tr class="table-row">
+					<td class="flex-c">
+						<img src="images/bookimage/${dto.book_image}" alt="">
+					</td>
+					<td class="text-c">${dto.book_idx}</td>
+					<td class="text-c">${dto.book_name}</td>
+					<td class="text-c">${dto.book_author}</td>
+					<td class="text-c">${dto.book_pub}</td>
+					<td class="text-c">${dto.rent_date}</td>
+					<td class="text-c" >${dto.rent_return}</td>
+				</tr>
+			</c:forEach>
+		</table>
+	</div>
 </div>
