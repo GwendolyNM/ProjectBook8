@@ -38,7 +38,8 @@
     
 				    select member_idx,
 				      	   member_id, 
-				      	   member_pw
+				      	   member_pw,
+				      	   member_manager
 				      from member
 				     where member_id= #{member_id}
 	</select>

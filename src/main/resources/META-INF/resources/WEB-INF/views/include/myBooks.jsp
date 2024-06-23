@@ -3,6 +3,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <div class="container">
+	<div class="mybooklist-box-top">
+			<p>List of books reserved</p>
+		</div>
 	<div class="mybooklist-box scrollbar">
 		<table class="book_info">
 			<tr class="table-column">

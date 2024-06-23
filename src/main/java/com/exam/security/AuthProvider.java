@@ -40,8 +40,12 @@ public class AuthProvider implements AuthenticationProvider {
 			
 			List<GrantedAuthority> list = new ArrayList<>();
 			//ROLE 설정시 사용됨
-			list.add(new SimpleGrantedAuthority("USER")); // ADMIN
-			
+			list.add(new SimpleGrantedAuthority("ROLE_USER"));
+
+            // 사용자가 관리자인 경우 ADMIN 권한 추가
+            if (mem.isMember_manager()) {
+            	list.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
+            }
 			//암호화된 비번대신에 raw 비번으로 설정
 			mem.setMember_pw(member_pw);
 			token = new UsernamePasswordAuthenticationToken(mem, null, list);
