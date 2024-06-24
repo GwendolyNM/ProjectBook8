@@ -29,7 +29,7 @@ $(document).ready(function() {
 	}); //end id 중복 체크
 	
 	//회원가입 시 idcheck
-	$("#signupIdcheck").on("click", function() {
+	$("#signupForm").on("submit", function(event) {
 
 		$.ajax({
 			method : "get",
@@ -44,6 +44,7 @@ $(document).ready(function() {
 				$("#idCheck").text(data);
 				if (data == "사용불가") {
 					alert(data)
+					event.preventDefault();
 				}
 			},
 			error : function(xhr, status, error) {

@@ -21,7 +21,7 @@
 			</div>
 			<div class="book-text-box flex-sb">
 				<div class="input-box">
-					<form:input type="text" name="book_idx" path="book_idx"	id="book_idx" class="form-control" placeholder="등록번호 ex)AY000049241" maxlength="11"/>
+					<form:input type="text" name="book_idx" path="book_idx"	id="book_idx" class="form-control" placeholder="등록번호 ex)AY000049241" maxlength="20"/>
 					<form:errors path="book_idx" cssClass="text-warning" />
 				</div>
 				<div class="input-box">
