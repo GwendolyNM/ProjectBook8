@@ -53,6 +53,7 @@
 		        OR b.book_name LIKE CONCAT('%', #{keyword}, '%')
 		        OR b.book_year LIKE CONCAT('%', #{keyword}, '%')
 		        OR b.book_ISBN LIKE CONCAT('%', #{keyword}, '%')
+		        OR g.book_genre LIKE CONCAT('%', #{keyword}, '%')
 		    )
 
 	</select>
