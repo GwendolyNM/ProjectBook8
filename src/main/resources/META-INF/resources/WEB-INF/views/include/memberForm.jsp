@@ -9,7 +9,7 @@
 
 <div class="TodoApp">
 	<div class="container">
-		<form:form method="post" modelAttribute="memberDTO" class="login-form flex-c">
+		<form:form method="post" id="signupForm" modelAttribute="memberDTO" class="login-form flex-c">
 			<div class="input-box flex-sb">
 				<form:input type="text" class="form-control" path="member_id" placeholder="아이디"/>
 				<form:errors path="member_id" cssClass="text-warning" />

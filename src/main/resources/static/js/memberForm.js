@@ -72,6 +72,33 @@ $(document).ready(function() {
 
 			$("#pwdcheck").text(mesg);
 		});
+		
+		$("#signupForm").on("submit", function(event) {
+		    var member_pw = $("#member_pw").val().trim();
+		    var member_pw2 = $("#member_pw2").val().trim();
+
+		    if (member_pw === "" || member_pw2 === "") {
+		        alert("비밀번호를 입력해주세요");
+		        event.preventDefault(); // 폼 제출을 막음
+		        return;
+		    }
+
+		    if (member_pw.length < 8) {
+		        alert("비밀번호는 8자리 이상이어야 합니다.");
+		        event.preventDefault(); // 폼 제출을 막음
+		        return;
+		    }
+
+		    if (member_pw !== member_pw2) {
+		        alert("입력하신 비밀번호와 다릅니다.");
+		        event.preventDefault(); // 폼 제출을 막음
+		        return;
+		    }
+
+		    // 모든 조건을 만족하면 폼이 제출됩니다.
+		});
+
+
 
 	});//ready
 	
